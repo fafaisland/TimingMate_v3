@@ -36,6 +36,9 @@
         currentTimeLeft.text = @"30:00";
         timerTime = 1800;
         
+        badgeButton = [[UIButton alloc] init];
+        [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
+        
     }
     return self;
 }
@@ -80,7 +83,6 @@
     }else{
         badgePic = @"exceedBadge.png";
     }
-    UIButton *badgeButton = [[UIButton alloc] init];
     [badgeButton setBackgroundImage:[UIImage imageNamed:badgePic] forState: UIControlStateNormal];
     badgeButton.frame = CGRectMake(68,158,186,186);
     [self.view addSubview:badgeButton];
@@ -193,7 +195,18 @@
     [[[TMViewControllerStore sharedStore] returnMenuController] showLeftController:YES];
     
 }
-
+- (void)badgeButtonTouchDown
+{
+    [self.view addSubview:unfinishView];
+}
+- (IBAction)cancelUnfinish:(id)sender
+{
+    [unfinishView removeFromSuperview];
+}
+- (IBAction)unfinishTask:(id)sender{
+    [badgeButton removeFromSuperview];
+    [unfinishView removeFromSuperview];
+}
 #pragma mark - Timer Methods
 - (void)createTimer
 {

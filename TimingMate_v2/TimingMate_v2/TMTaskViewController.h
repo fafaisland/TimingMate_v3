@@ -31,9 +31,12 @@
     NSTimer *timer;
     IBOutlet UIButton *pauseButton;
     IBOutlet UIButton *startButton;
+    UIButton *badgeButton;
     
     IBOutlet UIView *greyBackground;
     IBOutlet UIView *taskStatus;
+    
+    IBOutlet UIView *unfinishView;
 
     IBOutlet UITextField *setHourTextField;
     IBOutlet UITextField *setMinTextField;
@@ -63,7 +66,8 @@
 - (IBAction)changeToTaskStatusView:(id)sender;
 - (IBAction)changeToTimeDetailView:(id)sender;
 
-
+- (IBAction)cancelUnfinish:(id)sender;
+- (IBAction)unfinishTask:(id)sender;
 
 - (void)updateWithTask:(TMTask *)aTask;
 @end
