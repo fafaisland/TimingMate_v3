@@ -58,6 +58,8 @@
 		04DBC53B17A07EEB008C6BA4 /* TMEditTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DBC53917A07EEB008C6BA4 /* TMEditTaskViewController.xib */; };
 		04DBC53F17A07F49008C6BA4 /* TMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBC53D17A07F49008C6BA4 /* TMListViewController.m */; };
 		04DBC54017A07F49008C6BA4 /* TMListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DBC53E17A07F49008C6BA4 /* TMListViewController.xib */; };
+		04DBC54617A09DA8008C6BA4 /* TMBadgeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBC54517A09DA8008C6BA4 /* TMBadgeStore.m */; };
+		04DBC54917A0A154008C6BA4 /* TMBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBC54817A0A154008C6BA4 /* TMBadge.m */; };
 		04F373C8178CE53700550202 /* timer-start.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F373C5178CE53700550202 /* timer-start.png */; };
 		04F373C9178CE53700550202 /* timer-restart.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F373C6178CE53700550202 /* timer-restart.png */; };
 		04F373CA178CE53700550202 /* timer-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F373C7178CE53700550202 /* timer-stop.png */; };
@@ -136,6 +138,10 @@
 		04DBC53C17A07F49008C6BA4 /* TMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMListViewController.h; sourceTree = "<group>"; };
 		04DBC53D17A07F49008C6BA4 /* TMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMListViewController.m; sourceTree = "<group>"; };
 		04DBC53E17A07F49008C6BA4 /* TMListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMListViewController.xib; sourceTree = "<group>"; };
+		04DBC54417A09DA8008C6BA4 /* TMBadgeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMBadgeStore.h; sourceTree = "<group>"; };
+		04DBC54517A09DA8008C6BA4 /* TMBadgeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMBadgeStore.m; sourceTree = "<group>"; };
+		04DBC54717A0A154008C6BA4 /* TMBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMBadge.h; sourceTree = "<group>"; };
+		04DBC54817A0A154008C6BA4 /* TMBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMBadge.m; sourceTree = "<group>"; };
 		04F373C5178CE53700550202 /* timer-start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-start.png"; sourceTree = "<group>"; };
 		04F373C6178CE53700550202 /* timer-restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-restart.png"; sourceTree = "<group>"; };
 		04F373C7178CE53700550202 /* timer-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-stop.png"; sourceTree = "<group>"; };
@@ -343,6 +349,8 @@
 				04DBC52917A07E48008C6BA4 /* TMListItem.m */,
 				04DBC52A17A07E48008C6BA4 /* TMTask.h */,
 				04DBC52B17A07E48008C6BA4 /* TMTask.m */,
+				04DBC54717A0A154008C6BA4 /* TMBadge.h */,
+				04DBC54817A0A154008C6BA4 /* TMBadge.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -356,6 +364,8 @@
 				04DBC53117A07EB9008C6BA4 /* TMTaskStore.m */,
 				04DBC53217A07EB9008C6BA4 /* TMViewControllerStore.h */,
 				04DBC53317A07EB9008C6BA4 /* TMViewControllerStore.m */,
+				04DBC54417A09DA8008C6BA4 /* TMBadgeStore.h */,
+				04DBC54517A09DA8008C6BA4 /* TMBadgeStore.m */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -473,6 +483,8 @@
 				04DBC53617A07EB9008C6BA4 /* TMViewControllerStore.m in Sources */,
 				04DBC53A17A07EEB008C6BA4 /* TMEditTaskViewController.m in Sources */,
 				04DBC53F17A07F49008C6BA4 /* TMListViewController.m in Sources */,
+				04DBC54617A09DA8008C6BA4 /* TMBadgeStore.m in Sources */,
+				04DBC54917A0A154008C6BA4 /* TMBadge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

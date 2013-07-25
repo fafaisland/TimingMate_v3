@@ -14,6 +14,9 @@
     IBOutlet UITableView *listTableView;
     UIButton *headerButton;
     
+    IBOutlet UILabel *numTasksWithin;
+    IBOutlet UILabel *numTasksExceed;
+    
     UITextField *activeTextField;
     
     __weak UITextField *editField;

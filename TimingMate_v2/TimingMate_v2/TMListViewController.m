@@ -15,7 +15,8 @@
 #import "TMViewControllerStore.h"
 #import "TMTaskViewController.h"
 #import "DDMenuController.h"
-
+#import "TMBadge.h"
+#import "TMBadgeStore.h"
 @implementation TMListViewController
 @synthesize selectedIndexPath;
 
@@ -48,6 +49,10 @@
         expandedSections = [[NSMutableIndexSet alloc] init];
     }
     listTableView.allowsSelectionDuringEditing = YES;
+    TMBadge *badge = [[TMBadgeStore sharedStore] returnBadge];
+    numTasksWithin.text = [NSString stringWithFormat:@"%d", badge.numTasksFinishedWithinDeadline];
+    numTasksExceed.text = [NSString stringWithFormat:@"%d", badge.numTasksFinishedExceedDeadline];
+    
 }
 
 - (void)viewDidUnload{
