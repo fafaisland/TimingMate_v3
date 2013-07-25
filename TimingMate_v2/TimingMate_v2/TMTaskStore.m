@@ -9,6 +9,7 @@
 #import "TMTaskStore.h"
 #import "TMTask.h"
 #import "TMListItem.h"
+#import "TMListStore.h"
 
 @implementation TMTaskStore
 - (id)init
@@ -34,6 +35,22 @@
     [allTasks addObject:t];
     [self saveChanges];
     NSLog(@"Created a task with list %@", list.title);
+    return t;
+}
+
+- (TMTask *)updateTask:(TMTask *)task withTitle:(NSString *)taskTitle withList:(TMListItem *)list allowedTime:(double)allowedTime
+{
+    TMTask *t;
+    for (TMTask *tempTask in allTasks){
+        if ([tempTask isEqual:task]){
+            t = tempTask;
+            break;
+        }
+    }
+    t.title = taskTitle;
+    t.list = list;
+    t.allowedCompletionTime = allowedTime;
+    [self saveChanges];
     return t;
 }
 

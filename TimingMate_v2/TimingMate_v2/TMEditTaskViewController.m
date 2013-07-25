@@ -100,9 +100,24 @@ enum{
     NSString *taskTitle = taskNameTextField.text;
     TMListItem *list = [[[TMListStore sharedStore] returnAllLists] objectAtIndex:selectedList];
     double allowedTime = [self getSecondsFromTimePicker];
-    TMTask *newTask =[[TMTaskStore sharedStore] createTaskWithTitle:taskTitle list:list allowedTime:allowedTime];
-    [[TMListStore sharedStore] addTask:newTask toList:list.title];
+    
+    TMTask *updatedTask;
+    
+    if (isEditing == false){
+        TMTask *newTask =[[TMTaskStore sharedStore] createTaskWithTitle:taskTitle list:list allowedTime:allowedTime];
+        [[TMListStore sharedStore] addTask:newTask toList:list.title];
+        updatedTask = newTask;
+    }else{
+        if ([task.list.title isEqual:list.title] == false){
+            TMListStore *ls = [TMListStore sharedStore];
+            [ls removeTask:task FromList:task.list.title];
+            [ls addTask:task toList:list.title];
+        }
+            updatedTask =[[TMTaskStore sharedStore] updateTask:task withTitle:taskTitle withList:list allowedTime:allowedTime];
+    }
+    
     [[[[TMViewControllerStore sharedStore] returnTMlvc] returnListTableView] reloadData];
+    [[[TMViewControllerStore sharedStore] returnTMtvc] updateWithTask:updatedTask];
     [self dismissViewControllerAnimated:YES completion:NULL];
     /*TMTaskViewController *tmtvc = [[TMTaskViewController alloc] init];
     [self presentViewController:tmtvc animated:NO completion:NULL];*/

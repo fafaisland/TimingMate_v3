@@ -61,13 +61,13 @@
 {
     if ([object isKindOfClass:[TMTask class]]){
         TMTask *other = object;
-        if (self.title == other.title && self.list == other.list && self.creationTime == other.creationTime && self.allowedCompletionTime == other.allowedCompletionTime){
+        if ([self.title isEqual:other.title] && [self.list.title isEqual:other.list.title] && self.allowedCompletionTime == other.allowedCompletionTime){
              return YES;
         }else{
             return NO;
         }
+    }else{
+        return NO;
     }
-    return NO;
-    
 }
 @end
