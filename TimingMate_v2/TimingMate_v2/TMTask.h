@@ -16,6 +16,7 @@
 @property (nonatomic) double allowedCompletionTime;
 @property (nonatomic) double totalUsedTime;
 @property (nonatomic, retain) NSDate * creationTime;
+@property (nonatomic) BOOL isFinished;
 
 - (id)initWithTitle:(NSString *)taskTitle list:(TMListItem *)list allowedTime:(double)allowedTime;
 @end

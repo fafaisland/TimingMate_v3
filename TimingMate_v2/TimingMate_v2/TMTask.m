@@ -15,6 +15,7 @@
 @synthesize allowedCompletionTime;
 @synthesize totalUsedTime;
 @synthesize creationTime;
+@synthesize isFinished;
 
 - (id)initWithTitle:(NSString *)taskTitle list:(TMListItem *)list allowedTime:(double)allowedTime
 {
@@ -24,6 +25,7 @@
         self.list = list;
         self.allowedCompletionTime =allowedTime;
         self.totalUsedTime = 0.0;
+        self.isFinished = false;
         self.creationTime = [NSDate date];
     }
     NSLog(@"New Task Created, Task name: %@ list Name: %@",taskTitle,list.title);
@@ -37,6 +39,7 @@
     [aCoder encodeDouble:allowedCompletionTime forKey:@"allowedCompletionTime"];
     [aCoder encodeDouble:totalUsedTime forKey:@"totalUsedTime"];
     [aCoder encodeObject:creationTime forKey:@"creattionTime"];
+    [aCoder encodeBool:isFinished forKey:@"isFinished"];
     NSLog(@"aCoder encoded title: %@ list: %@",title,list.title);
 }
 
@@ -49,6 +52,7 @@
         [self setAllowedCompletionTime:[aDecoder decodeDoubleForKey:@"allowedCompletionTime"]];
         [self setTotalUsedTime:[aDecoder decodeDoubleForKey:@"totalUsedTime"]];
         [self setCreationTime:[aDecoder decodeObjectForKey:@"creationTime"]];
+        [self setIsFinished:[aDecoder decodeBoolForKey:@"isFinished"]];
     }
     return self;
 }
