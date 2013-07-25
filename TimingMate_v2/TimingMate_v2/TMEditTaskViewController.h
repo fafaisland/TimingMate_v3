@@ -14,6 +14,8 @@
     IBOutlet UITextField *taskNameTextField;
     IBOutlet UIButton *listTitleButton;
     IBOutlet UIButton *allowedTimeButton;
+    IBOutlet UILabel *listTitleLabel;
+    IBOutlet UILabel *allowedTimeLabel;
     
     UIActionSheet *actionSheet;
     UIPickerView *listPickerView;

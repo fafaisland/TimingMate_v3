@@ -160,14 +160,14 @@ enum{
 {
     if (pickerView == listPickerView){
         selectedList = row;
-        [listTitleButton setTitle:[pickerArray objectAtIndex:selectedList] forState:UIControlStateNormal];
+        [listTitleLabel setText:[pickerArray objectAtIndex:selectedList]];
     }
     else { // pickerView == timePickerView
         if (component == TMHourComponent)
             selectedHourRow = row;
         else // component == TMMinuteComponent
             selectedMinuteRow = row;
-        [allowedTimeButton setTitle:[self makeTimeStringFromHours:selectedHourRow Minutes:selectedMinuteRow] forState:UIControlStateNormal];
+        [allowedTimeLabel setText:[self makeTimeStringFromHours:selectedHourRow Minutes:selectedMinuteRow]];
     }
 }
 
