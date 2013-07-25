@@ -13,8 +13,6 @@
 #import "TMtask.h"
 #import "TMListItem.h"
 #import "TMViewControllerStore.h"
-#import "TMTaskStatusViewController.h"
-#import "TMTimeDetailViewController.h"
 #import "TMGlobal.h"
 #import "TMTimer.h"
 #import "TMListStore.h"

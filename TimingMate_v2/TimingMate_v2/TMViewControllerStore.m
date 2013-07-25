@@ -10,8 +10,6 @@
 #import "TMTaskViewController.h"
 #import "TMListViewController.h"
 #import "DDMenuController.h"
-#import "TMTaskStatusViewController.h"
-#import "TMTimeDetailViewController.h"
 
 @implementation TMViewControllerStore
 - (id)init
@@ -26,12 +24,6 @@
         }
         if (!tmlvc){
             tmlvc = [[TMListViewController alloc] init];
-        }
-        if (!tmtsvc){
-            tmtsvc = [[TMTaskStatusViewController alloc] init];
-        }
-        if (!tmtdvc){
-            tmtdvc = [[TMTimeDetailViewController alloc] init];
         }
         menuController.leftViewController = tmlvc;
     }

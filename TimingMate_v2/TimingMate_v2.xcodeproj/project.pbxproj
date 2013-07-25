@@ -30,13 +30,9 @@
 		040386411779145B00166686 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040386401779145B00166686 /* DDMenuController.m */; };
 		040386431779184300166686 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040386421779184300166686 /* QuartzCore.framework */; };
 		040E5C3A177FAA7900EEE7CB /* TMGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 040E5C39177FAA7900EEE7CB /* TMGlobal.m */; };
-		040E5C451780B2D900EEE7CB /* TMTaskStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040E5C431780B2D900EEE7CB /* TMTaskStatusViewController.m */; };
-		040E5C461780B2D900EEE7CB /* TMTaskStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040E5C441780B2D900EEE7CB /* TMTaskStatusViewController.xib */; };
 		040E5C4A1780B43300EEE7CB /* engage.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E5C471780B43300EEE7CB /* engage.png */; };
 		040E5C4B1780B43300EEE7CB /* finish.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E5C481780B43300EEE7CB /* finish.png */; };
 		040E5C4C1780B43300EEE7CB /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E5C491780B43300EEE7CB /* trash.png */; };
-		040E5C511780E09600EEE7CB /* TMTimeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040E5C4F1780E09600EEE7CB /* TMTimeDetailViewController.m */; };
-		040E5C521780E09600EEE7CB /* TMTimeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040E5C501780E09600EEE7CB /* TMTimeDetailViewController.xib */; };
 		040E5C551780EB1F00EEE7CB /* TMTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 040E5C541780EB1E00EEE7CB /* TMTimer.m */; };
 		040E5C5717810F9F00EEE7CB /* victory_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E5C5617810F9F00EEE7CB /* victory_small.png */; };
 		0410841D177A834100B17949 /* cellBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0410841B177A834100B17949 /* cellBg.png */; };
@@ -101,15 +97,9 @@
 		040386421779184300166686 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		040E5C38177FAA7900EEE7CB /* TMGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMGlobal.h; sourceTree = "<group>"; };
 		040E5C39177FAA7900EEE7CB /* TMGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMGlobal.m; sourceTree = "<group>"; };
-		040E5C421780B2D900EEE7CB /* TMTaskStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTaskStatusViewController.h; sourceTree = "<group>"; };
-		040E5C431780B2D900EEE7CB /* TMTaskStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTaskStatusViewController.m; sourceTree = "<group>"; };
-		040E5C441780B2D900EEE7CB /* TMTaskStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMTaskStatusViewController.xib; sourceTree = "<group>"; };
 		040E5C471780B43300EEE7CB /* engage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engage.png; sourceTree = "<group>"; };
 		040E5C481780B43300EEE7CB /* finish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finish.png; sourceTree = "<group>"; };
 		040E5C491780B43300EEE7CB /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
-		040E5C4E1780E09600EEE7CB /* TMTimeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTimeDetailViewController.h; sourceTree = "<group>"; };
-		040E5C4F1780E09600EEE7CB /* TMTimeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTimeDetailViewController.m; sourceTree = "<group>"; };
-		040E5C501780E09600EEE7CB /* TMTimeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMTimeDetailViewController.xib; sourceTree = "<group>"; };
 		040E5C531780EB1D00EEE7CB /* TMTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTimer.h; sourceTree = "<group>"; };
 		040E5C541780EB1E00EEE7CB /* TMTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTimer.m; sourceTree = "<group>"; };
 		040E5C5617810F9F00EEE7CB /* victory_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory_small.png; sourceTree = "<group>"; };
@@ -292,8 +282,6 @@
 				0403861A1778C71900166686 /* TMTaskViewController.h */,
 				0403861B1778C71900166686 /* TMTaskViewController.m */,
 				040386201778D35A00166686 /* TMTaskViewController.xib */,
-				040E5C411780B2AF00EEE7CB /* TaskStatusController */,
-				040E5C4D1780E05700EEE7CB /* TimeDetailController */,
 			);
 			name = TaskController;
 			sourceTree = "<group>";
@@ -306,26 +294,6 @@
 				04DBC53E17A07F49008C6BA4 /* TMListViewController.xib */,
 			);
 			name = ListController;
-			sourceTree = "<group>";
-		};
-		040E5C411780B2AF00EEE7CB /* TaskStatusController */ = {
-			isa = PBXGroup;
-			children = (
-				040E5C421780B2D900EEE7CB /* TMTaskStatusViewController.h */,
-				040E5C431780B2D900EEE7CB /* TMTaskStatusViewController.m */,
-				040E5C441780B2D900EEE7CB /* TMTaskStatusViewController.xib */,
-			);
-			name = TaskStatusController;
-			sourceTree = "<group>";
-		};
-		040E5C4D1780E05700EEE7CB /* TimeDetailController */ = {
-			isa = PBXGroup;
-			children = (
-				040E5C4E1780E09600EEE7CB /* TMTimeDetailViewController.h */,
-				040E5C4F1780E09600EEE7CB /* TMTimeDetailViewController.m */,
-				040E5C501780E09600EEE7CB /* TMTimeDetailViewController.xib */,
-			);
-			name = TimeDetailController;
 			sourceTree = "<group>";
 		};
 		0410841F177AC3A400B17949 /* TableViewCell */ = {
@@ -443,11 +411,9 @@
 				0410841D177A834100B17949 /* cellBg.png in Resources */,
 				0410841E177A834100B17949 /* moreInfo_22inch.png in Resources */,
 				04108424177AC9C000B17949 /* TMListsViewEditableCell.xib in Resources */,
-				040E5C461780B2D900EEE7CB /* TMTaskStatusViewController.xib in Resources */,
 				040E5C4A1780B43300EEE7CB /* engage.png in Resources */,
 				040E5C4B1780B43300EEE7CB /* finish.png in Resources */,
 				040E5C4C1780B43300EEE7CB /* trash.png in Resources */,
-				040E5C521780E09600EEE7CB /* TMTimeDetailViewController.xib in Resources */,
 				040E5C5717810F9F00EEE7CB /* victory_small.png in Resources */,
 				04F373C8178CE53700550202 /* timer-start.png in Resources */,
 				04F373C9178CE53700550202 /* timer-restart.png in Resources */,
@@ -481,8 +447,6 @@
 				040386411779145B00166686 /* DDMenuController.m in Sources */,
 				04108423177AC9C000B17949 /* TMListsViewEditableCell.m in Sources */,
 				040E5C3A177FAA7900EEE7CB /* TMGlobal.m in Sources */,
-				040E5C451780B2D900EEE7CB /* TMTaskStatusViewController.m in Sources */,
-				040E5C511780E09600EEE7CB /* TMTimeDetailViewController.m in Sources */,
 				040E5C551780EB1F00EEE7CB /* TMTimer.m in Sources */,
 				04DBC52C17A07E48008C6BA4 /* TMListItem.m in Sources */,
 				04DBC52D17A07E48008C6BA4 /* TMTask.m in Sources */,
