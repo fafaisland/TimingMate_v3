@@ -56,10 +56,13 @@
 //- (IBAction)startTimer:(id)sender;
 
 - (IBAction)createTask:(id)sender;
+- (IBAction)deleteTask:(id)sender;
+- (IBAction)finishTask:(id)sender;
+
 - (IBAction)changeToListView:(id)sender;
 - (IBAction)changeToTaskStatusView:(id)sender;
 - (IBAction)changeToTimeDetailView:(id)sender;
-- (IBAction)finishTask:(id)sender;
+
 
 
 - (void)updateWithTask:(TMTask *)aTask;

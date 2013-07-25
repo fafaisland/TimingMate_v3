@@ -17,6 +17,9 @@
 #import "TMTimeDetailViewController.h"
 #import "TMGlobal.h"
 #import "TMTimer.h"
+#import "TMListStore.h"
+#import "TMTaskStore.h"
+#import "TMListViewController.h"
 
 @implementation TMTaskViewController
 @synthesize task;
@@ -68,6 +71,19 @@
 
 - (void)removeGreyBackground{
     [greyBackground removeFromSuperview];
+}
+
+- (void)appearBadgeWithName:(NSString *)badgeName{
+    NSString *badgePic;
+    if ([badgeName isEqual: @"withinBadge"]){
+        badgePic = @"withinBadge.png";
+    }else{
+        badgePic = @"exceedBadge.png";
+    }
+    UIButton *badgeButton = [[UIButton alloc] init];
+    [badgeButton setBackgroundImage:[UIImage imageNamed:badgePic] forState: UIControlStateNormal];
+    badgeButton.frame = CGRectMake(68,158,186,186);
+    [self.view addSubview:badgeButton];
 }
 #pragma mark - Event Handler
 - (IBAction)toggleTimer:(id)sender
@@ -161,7 +177,21 @@
     //[self fallOneFlower:victoryImage3 WithVelocity:3.5 FromX:100 FromY:0 ToX:100];
     
     [taskStatus removeFromSuperview];
-    [self fallOneFlower:smileFaceImage WithVelocity:4.0 FromX:10 FromY:0 ToX:0];
+    [self appearBadgeWithName:@"withinBadge"];
+    //[self fallOneFlower:smileFaceImage WithVelocity:4.0 FromX:10 FromY:0 ToX:0];
+}
+
+- (IBAction)deleteTask:(id)sender
+{
+    TMListStore *ls = [TMListStore sharedStore];
+    TMListItem *l = task.list;
+    TMTaskStore *ts = [TMTaskStore sharedStore];
+    [ls removeTask:task FromList:l.title];
+    [ts removeTask:task];
+    
+    [[[[TMViewControllerStore sharedStore] returnTMlvc] returnListTableView] reloadData];
+    [[[TMViewControllerStore sharedStore] returnMenuController] showLeftController:YES];
+    
 }
 
 #pragma mark - Timer Methods

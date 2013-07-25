@@ -60,6 +60,8 @@
 		04DBC54017A07F49008C6BA4 /* TMListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DBC53E17A07F49008C6BA4 /* TMListViewController.xib */; };
 		04DBC54617A09DA8008C6BA4 /* TMBadgeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBC54517A09DA8008C6BA4 /* TMBadgeStore.m */; };
 		04DBC54917A0A154008C6BA4 /* TMBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBC54817A0A154008C6BA4 /* TMBadge.m */; };
+		04DBC54C17A0D53B008C6BA4 /* exceedBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DBC54A17A0D53B008C6BA4 /* exceedBadge.png */; };
+		04DBC54D17A0D53B008C6BA4 /* withinBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DBC54B17A0D53B008C6BA4 /* withinBadge.png */; };
 		04F373C8178CE53700550202 /* timer-start.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F373C5178CE53700550202 /* timer-start.png */; };
 		04F373C9178CE53700550202 /* timer-restart.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F373C6178CE53700550202 /* timer-restart.png */; };
 		04F373CA178CE53700550202 /* timer-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F373C7178CE53700550202 /* timer-stop.png */; };
@@ -142,6 +144,8 @@
 		04DBC54517A09DA8008C6BA4 /* TMBadgeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMBadgeStore.m; sourceTree = "<group>"; };
 		04DBC54717A0A154008C6BA4 /* TMBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMBadge.h; sourceTree = "<group>"; };
 		04DBC54817A0A154008C6BA4 /* TMBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMBadge.m; sourceTree = "<group>"; };
+		04DBC54A17A0D53B008C6BA4 /* exceedBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exceedBadge.png; sourceTree = "<group>"; };
+		04DBC54B17A0D53B008C6BA4 /* withinBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = withinBadge.png; sourceTree = "<group>"; };
 		04F373C5178CE53700550202 /* timer-start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-start.png"; sourceTree = "<group>"; };
 		04F373C6178CE53700550202 /* timer-restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-restart.png"; sourceTree = "<group>"; };
 		04F373C7178CE53700550202 /* timer-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-stop.png"; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 		040386301778F31C00166686 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04DBC54A17A0D53B008C6BA4 /* exceedBadge.png */,
+				04DBC54B17A0D53B008C6BA4 /* withinBadge.png */,
 				04DBC52617A07DF6008C6BA4 /* lessInfo_22inch.png */,
 				96126529178FABEE00D01039 /* smile_face_small.png */,
 				96126527178FABE500D01039 /* info_btn.png */,
@@ -456,6 +462,8 @@
 				04DBC52717A07DF6008C6BA4 /* lessInfo_22inch.png in Resources */,
 				04DBC53B17A07EEB008C6BA4 /* TMEditTaskViewController.xib in Resources */,
 				04DBC54017A07F49008C6BA4 /* TMListViewController.xib in Resources */,
+				04DBC54C17A0D53B008C6BA4 /* exceedBadge.png in Resources */,
+				04DBC54D17A0D53B008C6BA4 /* withinBadge.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
