@@ -48,7 +48,7 @@
     
     BOOL moreOptions;
     BOOL timeDetail;
-    
+    IBOutlet UIView *taskDetailView;
 }
 @property (nonatomic, strong) TMTask *task;
 

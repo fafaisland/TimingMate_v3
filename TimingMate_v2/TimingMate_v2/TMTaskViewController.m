@@ -161,17 +161,12 @@
 
 - (IBAction)changeToTimeDetailView:(id)sender
 {
-    TMTimeDetailViewController *timeDetailViewController = [[TMViewControllerStore sharedStore] returnTimeDetailController];
     if (!timeDetail){
-    
-        timeDetailViewController.view.frame = CGRectMake(0,358, 320, 86);
-        [self addChildViewController:timeDetailViewController];
-        [self.view addSubview:timeDetailViewController.view];
+        taskDetailView.frame = CGRectMake(0,358, 320, 86);
+        [self.view addSubview:taskDetailView];
         timeDetail = true;
     }else{
-        [timeDetailViewController willMoveToParentViewController:nil];
-        [timeDetailViewController.view removeFromSuperview];
-        [timeDetailViewController removeFromParentViewController];
+        [taskDetailView removeFromSuperview];
         timeDetail = false;
     }
 }
