@@ -11,6 +11,8 @@
 
 @interface TMEditTaskViewController : UIViewController
 {
+    BOOL isEditing;
+    
     IBOutlet UITextField *taskNameTextField;
     IBOutlet UIButton *listTitleButton;
     IBOutlet UIButton *allowedTimeButton;
@@ -28,6 +30,7 @@
 }
 @property (nonatomic, strong) TMTask *task;
 
+- (id)initWithTask:(TMTask *)t;
 - (IBAction)cancelTask:(id)sender;
 - (IBAction)doneTask:(id)sender;
 

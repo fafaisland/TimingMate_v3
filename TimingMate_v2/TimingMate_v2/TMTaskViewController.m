@@ -135,6 +135,10 @@
     TMEditTaskViewController *createTaskViewController = [[TMEditTaskViewController alloc] init];
     [self presentViewController:createTaskViewController animated:YES completion:NULL];
 }
+- (IBAction)editTask:(id)sender{
+    TMEditTaskViewController *createTaskViewController = [[TMEditTaskViewController alloc] initWithTask:task];
+    [self presentViewController:createTaskViewController animated:YES completion:NULL];
+}
 - (IBAction)changeToTaskStatusView:(id)sender
 {
     //TMTaskStatusViewController *tmtsvc = [[TMViewControllerStore sharedStore] returnTaskStatusController];

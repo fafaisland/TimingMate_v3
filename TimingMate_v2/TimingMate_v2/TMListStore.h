@@ -23,6 +23,7 @@
 - (NSString *)listArchivePath;
 - (TMListItem *)createListWithTitle:(NSString *)title;
 - (TMListItem *)listsByTitle:(NSString *)title;
+- (NSInteger)indexOfListByTitle:(NSString *)s;
 - (void)addTask:(TMTask *)task toList:(NSString *)listName;
 - (void)removeTask:(TMTask *)task FromList:(NSString *)listName;
 - (NSMutableArray *)getAllTasksFromList:(NSString *)listName;

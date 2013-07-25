@@ -52,6 +52,12 @@
     }
     return nil;
 }
+
+- (NSInteger)indexOfListByTitle:(NSString *)s{
+    TMListItem *l = [self listsByTitle:s];
+    return [allLists indexOfObject:l];
+}
+
 - (void)addTask:(TMTask *)task toList:(NSString *)listName
 {
     TMListItem *l = [self listsByTitle:listName];

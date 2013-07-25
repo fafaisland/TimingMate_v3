@@ -14,6 +14,7 @@
 #import "TMListItem.h"
 #import "TMTaskStore.h"
 #import "TMTask.h"
+#import "TMGlobal.h"
 
 NSString * const TMListUncategorized = @"Uncategorized";
 enum{
@@ -30,10 +31,27 @@ enum{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        isEditing = false;
     }
     return self;
 }
-
+/*
+- (id)init
+{
+    self = [super init];
+    if (self){
+        isEditing = false;
+    }
+}
+*/
+- (id)initWithTask:(TMTask *)t{
+    self = [super init];
+    if(self){
+        task = t;
+        isEditing = true;
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,10 +59,21 @@ enum{
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self initializeListPickerWithString:TMListUncategorized];
-    
-    [self initializeTimePicker];
-
+    if(isEditing == false){
+        [self initializeListPickerWithString:TMListUncategorized];
+        selectedHourRow = 10;
+        selectedMinuteRow = 30;
+        [self initializeTimePicker];
+    }else{
+        taskNameTextField.text = task.title;
+        listTitleLabel.text = task.list.title;
+        allowedTimeLabel.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
+        [self initializeListPickerWithString:task.list.title];
+        
+        selectedHourRow = TMTimerHourFromSeconds(task.allowedCompletionTime);
+        selectedMinuteRow = TMTimerMinFromSeconds(task.allowedCompletionTime);
+        [self initializeTimePicker];
+    }
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -206,24 +235,14 @@ enum{
         listPickerView.delegate = self;
     }
     
-    [listPickerView selectRow:0 inComponent:0 animated:NO];
-    selectedList = 0;
-    /*
-    NSInteger row = 0;
     if (s == TMListUncategorized) {
-        row = 0;
-    }else{
-        row = 1;
+        selectedList = 0;
     }
-    
     else {
-        NSInteger idx = [[TMListStore sharedStore] indexOfSeriesByTitle:s];
-        if (idx >= 0)
-            row = TMDefaultSeriesEnd + idx;
+        selectedList = [[TMListStore sharedStore] indexOfListByTitle:s];
     }
     
-    [listPickerView selectRow:row inComponent:0 animated:NO];
-    */
+    [listPickerView selectRow:selectedList inComponent:0 animated:NO];
 }
 
 - (void)initializeTimePicker
@@ -239,10 +258,8 @@ enum{
     
     //selectedMinuteRow = task.expectedTimeMinutes;
     //selectedHourRow = task.expectedTimeHours;
-    [timePickerView selectRow:30 inComponent:TMMinuteComponent animated:NO];
-    [timePickerView selectRow:10 inComponent:TMHourComponent animated:NO];
-    selectedHourRow = 10;
-    selectedMinuteRow = 30;
+    [timePickerView selectRow:selectedMinuteRow inComponent:TMMinuteComponent animated:NO];
+    [timePickerView selectRow:selectedHourRow inComponent:TMHourComponent animated:NO];
 }
 
 #pragma mark - TextField delegate

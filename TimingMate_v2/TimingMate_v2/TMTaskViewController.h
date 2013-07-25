@@ -59,6 +59,7 @@
 //- (IBAction)startTimer:(id)sender;
 
 - (IBAction)createTask:(id)sender;
+- (IBAction)editTask:(id)sender;
 - (IBAction)deleteTask:(id)sender;
 - (IBAction)finishTask:(id)sender;
 

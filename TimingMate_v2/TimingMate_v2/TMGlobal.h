@@ -8,3 +8,7 @@
 
 NSString * TMTimerStringFromSeconds(int seconds);
 NSString * TMTimerStringFromSecondsShowMin(int seconds);
+NSString * TMTimerStringFromSecondsShowHourAndMin(int seconds);
+
+NSInteger TMTimerHourFromSeconds(int seconds);
+NSInteger TMTimerMinFromSeconds(int seconds);
