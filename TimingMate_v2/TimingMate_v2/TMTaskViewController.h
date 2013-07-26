@@ -14,6 +14,9 @@
     IBOutlet UIView *introAppView;
     BOOL hasIntroView;
     
+    IBOutlet UIView *noTaskChosenView;
+    BOOL hasNoTaskChosenView;
+    
     IBOutlet UILabel *listNameLabel;
     IBOutlet UILabel *taskNameLabel;
     

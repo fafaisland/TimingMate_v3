@@ -31,7 +31,7 @@
     return self;
 }
 
-- (id)init{
+- (id)initWithTask:(TMTask *)aTask{
     self = [super init];
     if (self){
         moreOptions = false;
@@ -43,6 +43,10 @@
         currentTimeLeft = [[UILabel alloc] init];
         currentTimeLeft.text = @"30:00";
         timerTime = 1800;
+        
+        task = aTask;
+        listNameLabel.text = task.list.title;
+        taskNameLabel.text = task.title;
         
         totalSpentTime.text = TMTimerStringFromSecondsShowHourAndMin(task.totalUsedTime);
         allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
