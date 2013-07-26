@@ -34,6 +34,9 @@
         currentTimeLeft.text = @"30:00";
         timerTime = 1800;
         
+        totalSpentTime.text = TMTimerStringFromSecondsShowHourAndMin(task.totalUsedTime);
+        allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
+        
         badgeButton = [[UIButton alloc] init];
         [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
         
@@ -54,6 +57,8 @@
     task = aTask;
     listNameLabel.text = task.list.title;
     taskNameLabel.text = task.title;
+    //totalSpentTime.text = TMTimerStringFromSecondsShowHourAndMin(task.totalUsedTime);
+    allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
 }
 
 - (void)startTimer{

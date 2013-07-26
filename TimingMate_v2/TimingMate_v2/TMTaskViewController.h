@@ -49,6 +49,8 @@
     BOOL moreOptions;
     BOOL timeDetail;
     IBOutlet UIView *taskDetailView;
+    IBOutlet UILabel *totalSpentTime;
+    IBOutlet UILabel *allowedTime;
 }
 @property (nonatomic, strong) TMTask *task;
 
