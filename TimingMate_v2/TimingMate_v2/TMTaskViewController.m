@@ -18,6 +18,8 @@
 #import "TMListStore.h"
 #import "TMTaskStore.h"
 #import "TMListViewController.h"
+#import "TMBadge.h"
+#import "TMBadgeStore.h"
 
 @implementation TMTaskViewController
 @synthesize task;
@@ -61,6 +63,7 @@
 {
     [super viewWillDisappear:animated];
     [[TMTaskStore sharedStore] updateTask:task withTotalTimeSpent:task.totalUsedTime];
+    [timer invalidate];
     
 }
 #pragma mark - helper
@@ -84,6 +87,9 @@
         [noTaskChosenView removeFromSuperview];
         hasNoTaskChosenView = false;
     }
+    
+    [[TMBadgeStore sharedStore] setLastModifiedTask:aTask];
+    
     moreOptions = false;
     timeDetail = false;
     timerCount = 0;
