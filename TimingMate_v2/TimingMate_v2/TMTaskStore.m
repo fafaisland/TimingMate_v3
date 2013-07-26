@@ -54,6 +54,20 @@
     return t;
 }
 
+- (TMTask *)updateTask:(TMTask *)task withTotalTimeSpent:(double)totalSpentTime
+{
+    TMTask *t;
+    for (TMTask *tempTask in allTasks){
+        if ([tempTask isEqual:task]){
+            t = tempTask;
+            break;
+        }
+    }
+    t.totalUsedTime = totalSpentTime;
+    [self saveChanges];
+    return t;
+}
+
 - (void)removeTask:(TMTask *)task
 {
     NSLog(@"Tasks %@",task.title);

@@ -18,7 +18,16 @@ NSString * TMTimerStringFromSeconds(int seconds)
     
     return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, secondsLeft];
 }
-
+NSString * TMTimerStringFromSecondsShowHourMinSec(int seconds)
+{
+    int hours = seconds / 3600;
+    int secondsLeft = seconds % 3600;
+    
+    int minutes = secondsLeft / 60;
+    secondsLeft = secondsLeft % 60;
+    
+    return [NSString stringWithFormat:@"%02d hr %02d min %02d sec", hours, minutes, secondsLeft];
+}
 NSString * TMTimerStringFromSecondsShowHourAndMin(int seconds)
 {
     int hours = seconds / 3600;

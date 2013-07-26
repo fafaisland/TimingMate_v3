@@ -19,6 +19,7 @@
 - (NSArray *)returnAllTasks;
 - (TMTask *)createTaskWithTitle:(NSString *)taskTitle list:(TMListItem *)list allowedTime:(double)allowedTime;
 - (TMTask *)updateTask:(TMTask *)task withTitle:(NSString *)taskTitle withList:(TMListItem *)list allowedTime:(double)allowedTime;
+- (TMTask *)updateTask:(TMTask *)task withTotalTimeSpent:(double)totalSpentTime;
 - (void)removeTask:(TMTask *)task;
 - (NSString *)taskArchivePath;
 - (BOOL)saveChanges;

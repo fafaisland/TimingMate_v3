@@ -27,6 +27,7 @@
     if (self){
         [self.view addSubview:introAppView];
         hasIntroView = true;
+        task = nil;
     }
     return self;
 }
@@ -36,6 +37,7 @@
     if (self){
         [self.view addSubview:noTaskChosenView];
         hasNoTaskChosenView = true;
+        task = nil;
     }
     return self;
 }
@@ -50,8 +52,15 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    setMinTextField.delegate = self;
-    setMinTextField.delegate = self;
+    //setMinTextField.delegate = self;
+    //setMinTextField.delegate = self;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[TMTaskStore sharedStore] updateTask:task withTotalTimeSpent:task.totalUsedTime];
     
 }
 #pragma mark - helper
@@ -89,7 +98,7 @@
     listNameLabel.text = task.list.title;
     taskNameLabel.text = task.title;
     
-    totalSpentTime.text = TMTimerStringFromSecondsShowHourAndMin(task.totalUsedTime);
+    totalSpentTime.text = TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime);
     allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
     
     badgeButton = [[UIButton alloc] init];
@@ -258,6 +267,8 @@
 {
     timerCount += 1;
     [self setLabelFromLeftTime];
+    task.totalUsedTime += 1;
+    [totalSpentTime setText:TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime)];
 }
 
 - (void)setLabelFromLeftTime
