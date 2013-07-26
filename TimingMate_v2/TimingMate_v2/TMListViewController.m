@@ -458,6 +458,7 @@
     [ls removeTask:t FromList:l.title];
     [ts removeTask:t];
     [listTableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+    [[[TMViewControllerStore sharedStore] returnTMtvc] updateWithNoTaskChosen];
     [listTableView endUpdates];
     //[self toggleEdit];
     

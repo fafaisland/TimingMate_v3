@@ -42,34 +42,7 @@
 - (id)initWithTask:(TMTask *)aTask{
     self = [super init];
     if (self){
-        if (hasIntroView == true){
-            [introAppView removeFromSuperview];
-            hasIntroView = false;
-        }
-        if (hasNoTaskChosenView == true){
-            [noTaskChosenView removeFromSuperview];
-            hasNoTaskChosenView = false;
-        }
-        moreOptions = false;
-        timeDetail = false;
-        timerCount = 0;
-        timer = [[NSTimer alloc] init];
-        isTiming = false;
-        isPaused = false;
-        currentTimeLeft = [[UILabel alloc] init];
-        currentTimeLeft.text = @"30:00";
-        timerTime = 1800;
-        
-        task = aTask;
-        listNameLabel.text = task.list.title;
-        taskNameLabel.text = task.title;
-        
-        totalSpentTime.text = TMTimerStringFromSecondsShowHourAndMin(task.totalUsedTime);
-        allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
-        
-        badgeButton = [[UIButton alloc] init];
-        [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
-        
+        [self updateWithTask:aTask];
     }
     return self;
 }
@@ -82,13 +55,46 @@
     
 }
 #pragma mark - helper
+- (void)updateWithNoTaskChosen{
+    if (hasIntroView == true){
+        [introAppView removeFromSuperview];
+        hasIntroView = false;
+    }
+    
+    [self.view addSubview:noTaskChosenView];
+    hasNoTaskChosenView = true;
+}
+
 - (void)updateWithTask:(TMTask *)aTask
 {
+    if (hasIntroView == true){
+        [introAppView removeFromSuperview];
+        hasIntroView = false;
+    }
+    if (hasNoTaskChosenView == true){
+        [noTaskChosenView removeFromSuperview];
+        hasNoTaskChosenView = false;
+    }
+    moreOptions = false;
+    timeDetail = false;
+    timerCount = 0;
+    timer = [[NSTimer alloc] init];
+    isTiming = false;
+    isPaused = false;
+    currentTimeLeft = [[UILabel alloc] init];
+    currentTimeLeft.text = @"30:00";
+    timerTime = 1800;
+    
     task = aTask;
     listNameLabel.text = task.list.title;
     taskNameLabel.text = task.title;
-    //totalSpentTime.text = TMTimerStringFromSecondsShowHourAndMin(task.totalUsedTime);
+    
+    totalSpentTime.text = TMTimerStringFromSecondsShowHourAndMin(task.totalUsedTime);
     allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
+    
+    badgeButton = [[UIButton alloc] init];
+    [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
+    
 }
 
 - (void)startTimer{
@@ -223,6 +229,7 @@
     [ls removeTask:task FromList:l.title];
     [ts removeTask:task];
     
+    [[[TMViewControllerStore sharedStore] returnTMtvc] updateWithNoTaskChosen];
     [[[[TMViewControllerStore sharedStore] returnTMlvc] returnListTableView] reloadData];
     [[[TMViewControllerStore sharedStore] returnMenuController] showLeftController:YES];
     

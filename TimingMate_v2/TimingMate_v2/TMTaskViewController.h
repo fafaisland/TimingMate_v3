@@ -63,7 +63,8 @@
 - (id)initWithIntro;
 - (id)initWithNoTaskChosen;
 - (id)initWithTask:(TMTask *)aTask;
-
+- (void)updateWithTask:(TMTask *)aTask;
+- (void)updateWithNoTaskChosen;
 
 - (IBAction)toggleTimer:(id)sender;
 - (IBAction)resetTimer:(id)sender;
@@ -84,4 +85,5 @@
 - (IBAction)unfinishTask:(id)sender;
 
 - (void)updateWithTask:(TMTask *)aTask;
+- (void)updateWithNoTaskChosen;
 @end
