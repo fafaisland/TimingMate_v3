@@ -11,6 +11,9 @@
 
 @interface TMTaskViewController : UIViewController
 {
+    IBOutlet UIView *introAppView;
+    BOOL hasIntroView;
+    
     IBOutlet UILabel *listNameLabel;
     IBOutlet UILabel *taskNameLabel;
     
@@ -53,6 +56,8 @@
     IBOutlet UILabel *allowedTime;
 }
 @property (nonatomic, strong) TMTask *task;
+
+- (id)initWithIntro;
 
 - (IBAction)toggleTimer:(id)sender;
 - (IBAction)resetTimer:(id)sender;

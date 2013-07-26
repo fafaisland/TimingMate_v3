@@ -12,6 +12,8 @@
 #import "TMListViewController.h"
 #import "DDMenuController.h"
 #import "TMListStore.h"
+#import "TMTaskStore.h"
+#import "TMBadgeStore.h"
 #import "TMViewControllerStore.h"
 
 @implementation TMAppDelegate
@@ -48,11 +50,26 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     BOOL successList = [[TMListStore sharedStore] saveChanges];
+    BOOL successTask = [[TMTaskStore sharedStore] saveChanges];
+    BOOL successBadge = [[TMBadgeStore sharedStore] saveChanges];
     if (successList)
     {
         NSLog(@"Saved all of the TMLists");
     }else{
         NSLog(@"Could not save any of the TMLists");
+    }
+    
+    if (successTask)
+    {
+        NSLog(@"Saved all of the TMTasks");
+    }else{
+        NSLog(@"Could not save any of the TMTasks");
+    }
+    
+    if (successBadge){
+        NSLog(@"Saved the Badges");
+    }else{
+        NSLog(@"Could not save the badges");
     }
 }
 

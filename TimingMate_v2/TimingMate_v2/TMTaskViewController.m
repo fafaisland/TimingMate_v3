@@ -21,6 +21,16 @@
 
 @implementation TMTaskViewController
 @synthesize task;
+
+- (id)initWithIntro{
+    self = [super init];
+    if (self){
+        [self.view addSubview:introAppView];
+        hasIntroView = true;
+    }
+    return self;
+}
+
 - (id)init{
     self = [super init];
     if (self){

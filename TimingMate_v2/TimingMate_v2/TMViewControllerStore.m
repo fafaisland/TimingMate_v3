@@ -10,6 +10,7 @@
 #import "TMTaskViewController.h"
 #import "TMListViewController.h"
 #import "DDMenuController.h"
+#import "TMTaskStore.h"
 
 @implementation TMViewControllerStore
 - (id)init
@@ -17,7 +18,12 @@
     self = [super init];
     if (self){
         if (!tmtvc){
-            tmtvc = [[TMTaskViewController alloc] init];
+            int taskCount = [[TMTaskStore sharedStore] returnAllTasks].count;
+            if (taskCount > 0){
+                tmtvc = [[TMTaskViewController alloc] init];
+            }else{
+                tmtvc = [[TMTaskViewController alloc] initWithIntro];
+            }
         }
         if (!menuController){
             menuController = [[DDMenuController alloc] initWithRootViewController:tmtvc];

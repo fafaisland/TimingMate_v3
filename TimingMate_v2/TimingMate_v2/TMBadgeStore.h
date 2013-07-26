@@ -18,4 +18,5 @@
 - (TMBadge *)returnBadge;
 - (void)increaseNumTasksWithinDeadline;
 - (void)increaseNumTasksExceedDeadline;
+- (BOOL)saveChanges;
 @end
