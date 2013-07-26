@@ -31,9 +31,25 @@
     return self;
 }
 
+- (id)initWithNoTaskChosen{
+    self = [super init];
+    if (self){
+        [self.view addSubview:noTaskChosenView];
+        hasNoTaskChosenView = true;
+    }
+    return self;
+}
 - (id)initWithTask:(TMTask *)aTask{
     self = [super init];
     if (self){
+        if (hasIntroView == true){
+            [introAppView removeFromSuperview];
+            hasIntroView = false;
+        }
+        if (hasNoTaskChosenView == true){
+            [noTaskChosenView removeFromSuperview];
+            hasNoTaskChosenView = false;
+        }
         moreOptions = false;
         timeDetail = false;
         timerCount = 0;

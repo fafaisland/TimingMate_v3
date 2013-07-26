@@ -7,11 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+@class TMTask;
 
 @interface TMBadge : NSObject <NSCoding>
 
 @property (nonatomic) NSInteger numTasksFinishedWithinDeadline;
 @property (nonatomic) NSInteger numTasksFinishedExceedDeadline;
+@property (nonatomic) BOOL isFirstTime;
+@property (nonatomic, retain) TMTask *lastModifiedTask;
+
 -(void)increaseWithin;
+-(void)decreaseWithin;
 -(void)increaseExceed;
+-(void)decreaseExceed;
+-(void)setIsFirstTime;
+-(void)setLastModifiedTask:(TMTask *)task;
 @end

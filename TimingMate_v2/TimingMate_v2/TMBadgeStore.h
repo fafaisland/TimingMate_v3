@@ -18,5 +18,7 @@
 - (TMBadge *)returnBadge;
 - (void)increaseNumTasksWithinDeadline;
 - (void)increaseNumTasksExceedDeadline;
+-(void)setIsFirstTime;
+-(void)setLastModifiedTask:(TMTask *)task;
 - (BOOL)saveChanges;
 @end

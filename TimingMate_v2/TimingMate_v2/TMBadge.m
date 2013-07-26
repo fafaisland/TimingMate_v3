@@ -11,6 +11,8 @@
 @implementation TMBadge
 @synthesize numTasksFinishedWithinDeadline;
 @synthesize numTasksFinishedExceedDeadline;
+@synthesize isFirstTime;
+@synthesize lastModifiedTask;
 
 - (id)init
 {
@@ -18,6 +20,8 @@
     if(self){
         numTasksFinishedWithinDeadline = 0;
         numTasksFinishedExceedDeadline = 0;
+        isFirstTime = true;
+        lastModifiedTask = nil;
     }
     return self;
 }
@@ -28,11 +32,25 @@
 -(void)increaseExceed{
     numTasksFinishedExceedDeadline += 1;
 }
+-(void)decreaseWithin{
+    numTasksFinishedWithinDeadline -= 1;
+}
+-(void)decreaseExceed{
+    numTasksFinishedExceedDeadline -= 1;
+}
+-(void)setIsFirstTime{
+    isFirstTime = false;
+}
+-(void)setLastModifiedTask:(TMTask *)task{
+    lastModifiedTask = task;
+}
 #pragma archiving NSCode functions
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeInteger:numTasksFinishedWithinDeadline forKey:@"numTasksFinishedWithinDeadline"];
     [aCoder encodeInteger:numTasksFinishedExceedDeadline forKey:@"numTasksFinishedExceedDeadlin"];
+    [aCoder encodeBool:isFirstTime forKey:@"isFirstTime"];
+    [aCoder encodeObject:lastModifiedTask forKey:@"lastModifiedTask"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -41,6 +59,8 @@
     if (self){
         [self setNumTasksFinishedWithinDeadline:[aDecoder decodeObjectForKey:@"numTasksFinishedWithinDeadline"]];
         [self setNumTasksFinishedExceedDeadline:[aDecoder decodeObjectForKey:@"numTasksFinishedExceedDeadline"]];
+        [self setIsFirstTime:[aDecoder decodeObjectForKey:@"isFirstTime"]];
+        [self setLastModifiedTask:[aDecoder decodeObjectForKey:@"lastModifiedTask"]];
     }
     return self;
 }

@@ -11,6 +11,9 @@
 #import "TMListViewController.h"
 #import "DDMenuController.h"
 #import "TMTaskStore.h"
+#import "TMBadgeStore.h"
+#import "TMBadge.h"
+#import "TMTask.h"
 
 @implementation TMViewControllerStore
 - (id)init
@@ -18,11 +21,20 @@
     self = [super init];
     if (self){
         if (!tmtvc){
-            int taskCount = [[TMTaskStore sharedStore] returnAllTasks].count;
-            if (taskCount > 0){
-                tmtvc = [[TMTaskViewController alloc] init];
-            }else{
-                tmtvc = [[TMTaskViewController alloc] initWithIntro];
+            TMBadgeStore *bs = [TMBadgeStore sharedStore];
+            TMBadge *badge = [bs returnBadge];
+            TMTask *lastModifiedTask = [badge lastModifiedTask];
+            if (lastModifiedTask != nil){
+                tmtvc = [[TMTaskViewController alloc] initWithTask:lastModifiedTask];
+            }
+            else{
+                BOOL isFirst = [badge isFirstTime];
+                if (isFirst == true){
+                    tmtvc = [[TMTaskViewController alloc] initWithIntro];
+                    [bs setIsFirstTime];
+                }else{
+                    tmtvc = [[TMTaskViewController alloc] initWithNoTaskChosen];
+                }
             }
         }
         if (!menuController){

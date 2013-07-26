@@ -38,6 +38,14 @@
 - (TMBadge *)returnBadge{
     return badge;
 }
+-(void)setIsFirstTime{
+    [badge setIsFirstTime];
+    [self saveChanges];
+}
+-(void)setLastModifiedTask:(TMTask *)task{
+    [badge setLastModifiedTask:task];
+    [self saveChanges];
+}
 #pragma Archiving Functions
 - (NSString *)badgeArchivePath
 {

@@ -61,6 +61,9 @@
 @property (nonatomic, strong) TMTask *task;
 
 - (id)initWithIntro;
+- (id)initWithNoTaskChosen;
+- (id)initWithTask:(TMTask *)aTask;
+
 
 - (IBAction)toggleTimer:(id)sender;
 - (IBAction)resetTimer:(id)sender;
