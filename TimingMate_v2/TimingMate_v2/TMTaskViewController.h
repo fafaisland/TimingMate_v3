@@ -37,7 +37,9 @@
     NSTimer *timer;
     IBOutlet UIButton *pauseButton;
     IBOutlet UIButton *startButton;
+    
     UIButton *badgeButton;
+    //BOOL hasBageButton;
     
     IBOutlet UIView *greyBackground;
     IBOutlet UIView *taskStatus;

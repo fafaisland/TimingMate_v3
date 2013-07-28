@@ -58,27 +58,35 @@
         
         task = aTask;
         
-        badgeButton = [[UIButton alloc] init];
-        [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
     }
     return self;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    listNameLabel.text = task.list.title;
-    taskNameLabel.text = task.title;
-    
-    totalSpentTime.text = TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime);
-    allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
+    if (task != nil){
+        [super viewWillAppear:animated];
+        listNameLabel.text = task.list.title;
+        taskNameLabel.text = task.title;
+        
+        totalSpentTime.text = TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime);
+        allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
+        
+        if (task.isFinished == true){
+            if(task.totalUsedTime <= task.allowedCompletionTime){
+                [self appearBadgeWithName:@"withinBadge"];
+            }else{
+                [self appearBadgeWithName:@"exceedBadge"];
+            }
+            
+        }else{
+            [badgeButton removeFromSuperview];
+        }
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //setMinTextField.delegate = self;
-    //setMinTextField.delegate = self;
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -159,6 +167,8 @@
     }else{
         badgePic = @"exceedBadge.png";
     }
+    badgeButton = [[UIButton alloc] init];
+    [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
     [badgeButton setBackgroundImage:[UIImage imageNamed:badgePic] forState: UIControlStateNormal];
     badgeButton.frame = CGRectMake(68,158,186,186);
     [self.view addSubview:badgeButton];
@@ -273,17 +283,23 @@
     //[self fallOneFlower:victoryImage3 WithVelocity:3.5 FromX:100 FromY:0 ToX:100];
     
     [taskStatus removeFromSuperview];
-    
-    [[TMTaskStore sharedStore] updateTaskToggleFinished:task];
-    TMBadgeStore *bs = [TMBadgeStore sharedStore];
-    if (task.totalUsedTime <= task.allowedCompletionTime){
-        [self appearBadgeWithName:@"withinBadge"];
-        [bs increaseNumTasksWithinDeadline];
+    if (task.isFinished == false){
+        task.isFinished = true;
+        [[TMTaskStore sharedStore] updateTaskToggleFinished:task];
+        TMBadgeStore *bs = [TMBadgeStore sharedStore];
+        if (task.totalUsedTime <= task.allowedCompletionTime){
+            [self appearBadgeWithName:@"withinBadge"];
+            //[self.view addSubview:badgeButton];
+            [bs increaseNumTasksWithinDeadline];
+        }else{
+            [self appearBadgeWithName:@"exceedBadge"];
+            //[self.view addSubview:badgeButton];
+            [bs increaseNumTasksExceedDeadline];
+        }
+        [[[TMViewControllerStore sharedStore] returnTMlvc] updateBadges];
     }else{
-        [self appearBadgeWithName:@"exceedBadge"];
-        [bs increaseNumTasksExceedDeadline];
+        [self unfinishTask];
     }
-    [[[TMViewControllerStore sharedStore] returnTMlvc] updateBadges];
     //[self fallOneFlower:smileFaceImage WithVelocity:4.0 FromX:10 FromY:0 ToX:0];
 }
 
@@ -293,10 +309,15 @@
 }
 
 - (IBAction)unfinishTask:(id)sender{
+    [self unfinishTask];
+}
+
+- (void)unfinishTask{
     [badgeButton removeFromSuperview];
     [unfinishView removeFromSuperview];
     
     [[TMTaskStore sharedStore] updateTaskToggleFinished:task];
+    task.isFinished = false;
     TMBadgeStore *bs = [TMBadgeStore sharedStore];
     if (task.totalUsedTime <= task.allowedCompletionTime){
         [bs decreaseNumTasksWithinDeadline];
@@ -304,6 +325,7 @@
         [bs decreaseNumTasksExceedDeadline];
     }
     [[[TMViewControllerStore sharedStore] returnTMlvc] updateBadges];
+
 }
 #pragma mark - Timer Methods
 - (void)createTimer
