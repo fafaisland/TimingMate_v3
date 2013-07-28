@@ -68,6 +68,25 @@
     return t;
 }
 
+- (BOOL)updateTaskToggleFinished:(TMTask *)task
+{
+    TMTask *t;
+    for (TMTask *tempTask in allTasks){
+        if ([tempTask isEqual:task]){
+            t = tempTask;
+            break;
+        }
+    }
+    if (t.isFinished == true){
+        t.isFinished = false;
+        return false;
+    }else{
+        t.isFinished = true;
+        return true;
+    }
+    [self saveChanges];
+}
+
 - (void)removeTask:(TMTask *)task
 {
     NSLog(@"Tasks %@",task.title);

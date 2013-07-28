@@ -247,17 +247,6 @@
     }
 }
 
-- (IBAction)finishTask:(id)sender
-{
-    //[self fallOneFlower:victoryImage1 WithVelocity:4.0 FromX:10 FromY:0 ToX:10];
-    //[self fallOneFlower:victoryImage2 WithVelocity:3.0 FromX:30 FromY:0 ToX:30];
-    //[self fallOneFlower:victoryImage3 WithVelocity:3.5 FromX:100 FromY:0 ToX:100];
-    
-    [taskStatus removeFromSuperview];
-    [self appearBadgeWithName:@"withinBadge"];
-    //[self fallOneFlower:smileFaceImage WithVelocity:4.0 FromX:10 FromY:0 ToX:0];
-}
-
 - (IBAction)deleteTask:(id)sender
 {
     TMListStore *ls = [TMListStore sharedStore];
@@ -271,17 +260,50 @@
     [[[TMViewControllerStore sharedStore] returnMenuController] showLeftController:YES];
     
 }
+
 - (void)badgeButtonTouchDown
 {
     [self.view addSubview:unfinishView];
 }
+
+- (IBAction)finishTask:(id)sender
+{
+    //[self fallOneFlower:victoryImage1 WithVelocity:4.0 FromX:10 FromY:0 ToX:10];
+    //[self fallOneFlower:victoryImage2 WithVelocity:3.0 FromX:30 FromY:0 ToX:30];
+    //[self fallOneFlower:victoryImage3 WithVelocity:3.5 FromX:100 FromY:0 ToX:100];
+    
+    [taskStatus removeFromSuperview];
+    
+    [[TMTaskStore sharedStore] updateTaskToggleFinished:task];
+    TMBadgeStore *bs = [TMBadgeStore sharedStore];
+    if (task.totalUsedTime <= task.allowedCompletionTime){
+        [self appearBadgeWithName:@"withinBadge"];
+        [bs increaseNumTasksWithinDeadline];
+    }else{
+        [self appearBadgeWithName:@"exceedBadge"];
+        [bs increaseNumTasksExceedDeadline];
+    }
+    [[[TMViewControllerStore sharedStore] returnTMlvc] updateBadges];
+    //[self fallOneFlower:smileFaceImage WithVelocity:4.0 FromX:10 FromY:0 ToX:0];
+}
+
 - (IBAction)cancelUnfinish:(id)sender
 {
     [unfinishView removeFromSuperview];
 }
+
 - (IBAction)unfinishTask:(id)sender{
     [badgeButton removeFromSuperview];
     [unfinishView removeFromSuperview];
+    
+    [[TMTaskStore sharedStore] updateTaskToggleFinished:task];
+    TMBadgeStore *bs = [TMBadgeStore sharedStore];
+    if (task.totalUsedTime <= task.allowedCompletionTime){
+        [bs decreaseNumTasksWithinDeadline];
+    }else{
+        [bs decreaseNumTasksExceedDeadline];
+    }
+    [[[TMViewControllerStore sharedStore] returnTMlvc] updateBadges];
 }
 #pragma mark - Timer Methods
 - (void)createTimer

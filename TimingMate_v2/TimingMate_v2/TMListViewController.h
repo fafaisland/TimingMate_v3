@@ -28,6 +28,7 @@
     NSMutableIndexSet *expandedSections;
 }
 -(UITableView *)returnListTableView;
+-(void)updateBadges;
 @property (retain) NSIndexPath* selectedIndexPath;
 
 @end

@@ -414,6 +414,11 @@
 {
     return listTableView;
 }
+-(void)updateBadges{
+    TMBadge *badge = [[TMBadgeStore sharedStore] returnBadge];
+    numTasksWithin.text = [NSString stringWithFormat:@"%d", badge.numTasksFinishedWithinDeadline];
+    numTasksExceed.text = [NSString stringWithFormat:@"%d", badge.numTasksFinishedExceedDeadline];
+}
 - (void)showIdenticalTitleWarning
 {
     addField.text = @"";

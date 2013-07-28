@@ -29,10 +29,17 @@
     [badge increaseWithin];
     [self saveChanges];
 }
-
+- (void)decreaseNumTasksWithinDeadline{
+    [badge decreaseWithin];
+    [self saveChanges];
+}
 - (void)increaseNumTasksExceedDeadline
 {
     [badge increaseExceed];
+    [self saveChanges];
+}
+- (void)decreaseNumTasksExceedDeadline{
+    [badge decreaseExceed];
     [self saveChanges];
 }
 - (TMBadge *)returnBadge{
