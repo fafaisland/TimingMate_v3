@@ -173,7 +173,11 @@
             TMTask *t = [[[TMListStore sharedStore] getAllTasksFromList:l.title] objectAtIndex:(indexPath.row -1)];
             cell.textLabel.text = t.title;
             [cell.textLabel setBackgroundColor:[UIColor clearColor]];
-            [cell.textLabel setTextColor:[UIColor whiteColor]];
+            if(t.isFinished == false){
+                [cell.textLabel setTextColor:[UIColor whiteColor]];
+            }else{
+                [cell.textLabel setTextColor:[UIColor redColor]];
+            }
             cell.accessoryView = nil;
            // cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }

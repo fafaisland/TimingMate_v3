@@ -112,7 +112,7 @@
     moreOptions = false;
     timeDetail = false;
     
-    [self setupTimer];
+    [self resetTimer];
     task = aTask;
     listNameLabel.text = task.list.title;
     taskNameLabel.text = task.title;
