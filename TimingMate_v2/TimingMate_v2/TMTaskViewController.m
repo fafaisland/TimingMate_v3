@@ -46,9 +46,31 @@
 - (id)initWithTask:(TMTask *)aTask{
     self = [super init];
     if (self){
-        [self updateWithTask:aTask];
+        moreOptions = false;
+        timeDetail = false;
+        timerCount = 0;
+        timer = [[NSTimer alloc] init];
+        isTiming = false;
+        isPaused = false;
+        currentTimeLeft = [[UILabel alloc] init];
+        currentTimeLeft.text = @"30:00";
+        timerTime = 1800;
+        
+        task = aTask;
+        
+        badgeButton = [[UIButton alloc] init];
+        [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
     }
     return self;
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    listNameLabel.text = task.list.title;
+    taskNameLabel.text = task.title;
+    
+    totalSpentTime.text = TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime);
+    allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -107,8 +129,8 @@
     totalSpentTime.text = TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime);
     allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
     
-    badgeButton = [[UIButton alloc] init];
-    [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
+    //badgeButton = [[UIButton alloc] init];
+    //[badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
     
 }
 
