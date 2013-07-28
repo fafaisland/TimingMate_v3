@@ -137,12 +137,12 @@
 				<float key="IBUIAlpha">0.70000004768371582</float>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
-			<object class="IBUIView" id="365105022">
+			<object class="IBUIView" id="674033334">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="1026004250">
-						<reference key="NSNextResponder" ref="365105022"/>
+						<reference key="NSNextResponder" ref="674033334"/>
 						<int key="NSvFlags">292</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIButton" id="79380415">
@@ -209,7 +209,7 @@
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUINormalTitle">Edit</string>
 								<reference key="IBUIHighlightedTitleColor" ref="842789411"/>
-								<object class="NSColor" key="IBUINormalTitleColor" id="115855739">
+								<object class="NSColor" key="IBUINormalTitleColor" id="1035064358">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
 								</object>
@@ -226,7 +226,7 @@
 							</object>
 						</array>
 						<string key="NSFrame">{{130, 42}, {168, 30}}</string>
-						<reference key="NSSuperview" ref="365105022"/>
+						<reference key="NSSuperview" ref="674033334"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="88641018"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -373,21 +373,23 @@
 					<object class="IBUIButton" id="57496307">
 						<reference key="NSNextResponder" ref="385359043"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{287, 13}, {6, 26}}</string>
+						<string key="NSFrame">{{279, 13}, {28, 26}}</string>
 						<reference key="NSSuperview" ref="385359043"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="996260414"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
+						<int key="IBUIContentMode">1</int>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
 							<integer value="5" key="IBUIAccessibilityTraits"/>
 						</object>
-						<string key="IBUIContentStretch">{{0.5, 0.5}, {1, 1}}</string>
+						<string key="IBUIContentStretch">{{0, 0}, {0, 0}}</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIContentHorizontalAlignment">0</int>
-						<int key="IBUIContentVerticalAlignment">0</int>
+						<int key="IBUIContentHorizontalAlignment">3</int>
+						<int key="IBUIContentVerticalAlignment">3</int>
+						<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 						<reference key="IBUIHighlightedTitleColor" ref="842789411"/>
-						<reference key="IBUINormalTitleColor" ref="115855739"/>
+						<reference key="IBUINormalTitleColor" ref="1035064358"/>
 						<reference key="IBUINormalTitleShadowColor" ref="791286934"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
@@ -1155,7 +1157,7 @@
 				<reference key="IBUISimulatedDestinationMetrics" ref="985528030"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
-			<object class="IBUITapGestureRecognizer" id="155752873"/>
+			<object class="IBUITapGestureRecognizer" id="817933693"/>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -1291,7 +1293,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">taskStatus</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="365105022"/>
+						<reference key="destination" ref="674033334"/>
 					</object>
 					<int key="connectionID">1242</int>
 				</object>
@@ -1451,8 +1453,8 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
 						<string key="label">gestureRecognizers</string>
-						<reference key="source" ref="365105022"/>
-						<reference key="destination" ref="155752873"/>
+						<reference key="source" ref="674033334"/>
+						<reference key="destination" ref="817933693"/>
 						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
 						<bool key="addsContentToExistingCollection">YES</bool>
 					</object>
@@ -1461,7 +1463,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">removeTaskStatusView:</string>
-						<reference key="source" ref="155752873"/>
+						<reference key="source" ref="817933693"/>
 						<reference key="destination" ref="841351856"/>
 					</object>
 					<int key="connectionID">1254</int>
@@ -1816,7 +1818,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1236</int>
-						<reference key="object" ref="365105022"/>
+						<reference key="object" ref="674033334"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="1026004250"/>
 						</array>
@@ -1830,7 +1832,7 @@
 							<reference ref="79380415"/>
 							<reference ref="88641018"/>
 						</array>
-						<reference key="parent" ref="365105022"/>
+						<reference key="parent" ref="674033334"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1168</int>
@@ -1849,7 +1851,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1243</int>
-						<reference key="object" ref="155752873"/>
+						<reference key="object" ref="817933693"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</array>
@@ -1911,6 +1913,7 @@
 				<string key="207.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="38.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="54.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="2" key="54.IBUIButtonInspectorSelectedEdgeInsetMetadataKey"/>
 				<real value="0.0" key="54.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<object class="NSMutableAttributedString" key="54.notes">
 					<object class="NSMutableString" key="NSString">
@@ -1926,7 +1929,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1254</int>
+			<int key="maxID">1257</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2138,7 +2141,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="List-icon.png">{83, 507}</string>
+			<string key="List-icon.png">{35, 35}</string>
 			<string key="Timeline-List-Grid-List-icon.png">{512, 512}</string>
 			<string key="add.png">{128, 128}</string>
 			<string key="arrow_1.png">{264, 297}</string>
