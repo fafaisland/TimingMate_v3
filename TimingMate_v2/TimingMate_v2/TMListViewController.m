@@ -62,6 +62,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [listTableView reloadData];
     [super viewWillAppear:animated];
     self.editing = NO;
     [addField setText:@""];

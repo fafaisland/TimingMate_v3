@@ -48,14 +48,7 @@
     if (self){
         moreOptions = false;
         timeDetail = false;
-        timerCount = 0;
-        timer = [[NSTimer alloc] init];
-        isTiming = false;
-        isPaused = false;
-        currentTimeLeft = [[UILabel alloc] init];
-        currentTimeLeft.text = @"30:00";
-        timerTime = 1800;
-        
+        [self setupTimer];
         task = aTask;
         
     }
@@ -84,10 +77,6 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -122,18 +111,23 @@
     
     moreOptions = false;
     timeDetail = false;
-    timerCount = 0;
-    timer = [[NSTimer alloc] init];
-    isTiming = false;
-    isPaused = false;
-    currentTimeLeft = [[UILabel alloc] init];
-    currentTimeLeft.text = @"30:00";
-    timerTime = 1800;
     
+    [self setupTimer];
     task = aTask;
     listNameLabel.text = task.list.title;
     taskNameLabel.text = task.title;
     
+    if (task.isFinished == true){
+        if(task.totalUsedTime <= task.allowedCompletionTime){
+            [self appearBadgeWithName:@"withinBadge"];
+        }else{
+            [self appearBadgeWithName:@"exceedBadge"];
+        }
+        
+    }else{
+        [badgeButton removeFromSuperview];
+    }
+
     totalSpentTime.text = TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime);
     allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
     
@@ -190,14 +184,7 @@
     [[[TMViewControllerStore sharedStore] returnMenuController] showLeftController:YES];
 }
 - (IBAction)resetTimer:(id)sender{
-    [timerButton setBackgroundImage:[UIImage imageNamed:@"timer-restart.png"] forState:UIControlStateNormal];
-    [self removeGreyBackground];
-    [timer invalidate];
-    [currentTimeLeft removeFromSuperview];
-    timerCount = 0;
-    currentTimeLeft.text = @"30:00";
-    isTiming = false;
-    isPaused = false;
+    [self resetTimer];
 }
 
 - (IBAction)continueTimer:(id)sender
@@ -284,6 +271,7 @@
     
     [taskStatus removeFromSuperview];
     if (task.isFinished == false){
+        [self resetTimer];
         task.isFinished = true;
         [[TMTaskStore sharedStore] updateTaskToggleFinished:task];
         TMBadgeStore *bs = [TMBadgeStore sharedStore];
@@ -327,7 +315,31 @@
     [[[TMViewControllerStore sharedStore] returnTMlvc] updateBadges];
 
 }
+
 #pragma mark - Timer Methods
+- (void)setupTimer
+{
+    timerCount = 0;
+    timerTime = 1800;
+    timer = [[NSTimer alloc] init];
+    isTiming = false;
+    isPaused = false;
+    currentTimeLeft = [[UILabel alloc] init];
+    currentTimeLeft.text = @"30:00";
+}
+- (void)resetTimer{
+    [timerButton setBackgroundImage:[UIImage imageNamed:@"timer-restart.png"] forState:UIControlStateNormal];
+    [self removeGreyBackground];
+    [timer invalidate];
+    [currentTimeLeft removeFromSuperview];
+    /*
+     timerCount = 0;
+     currentTimeLeft.text = @"30:00";
+     isTiming = false;
+     isPaused = false;*/
+    [self setupTimer];
+
+}
 - (void)createTimer
 {
     //if (timer == nil){
