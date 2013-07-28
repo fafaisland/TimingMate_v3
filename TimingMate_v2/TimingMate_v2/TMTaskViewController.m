@@ -349,10 +349,15 @@
 }
 - (void)increaseTimerCount
 {
-    timerCount += 1;
-    [self setLabelFromLeftTime];
-    task.totalUsedTime += 1;
-    [totalSpentTime setText:TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime)];
+    if(timerCount < timerTime){
+        timerCount += 1;
+        [self setLabelFromLeftTime];
+        task.totalUsedTime += 1;
+        [totalSpentTime setText:TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime)];
+    }
+    else{
+        [self resetTimer];
+    }
 }
 
 - (void)setLabelFromLeftTime
