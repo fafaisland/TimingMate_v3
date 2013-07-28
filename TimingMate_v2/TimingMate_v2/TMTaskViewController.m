@@ -218,7 +218,7 @@
     
     if (!moreOptions){
         //tmtsvc.view.frame = CGRectMake(150, 64, 164, 30);
-        taskStatus.frame = CGRectMake(130,42,168,30);
+        //taskStatus.frame = CGRectMake(130,42,168,30);
         //[self addChildViewController:tmtsvc];
         //[self.view addSubview:tmtsvc.view];
         [self.view addSubview:taskStatus];
@@ -230,6 +230,11 @@
         [taskStatus removeFromSuperview];
         moreOptions = false;
     }
+}
+
+- (IBAction)removeTaskStatusView:(id)sender
+{
+    [taskStatus removeFromSuperview];
 }
 
 - (IBAction)changeToTimeDetailView:(id)sender

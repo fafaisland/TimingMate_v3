@@ -83,6 +83,8 @@
 - (IBAction)changeToTaskStatusView:(id)sender;
 - (IBAction)changeToTimeDetailView:(id)sender;
 
+- (IBAction)removeTaskStatusView:(id)sender;
+
 - (IBAction)cancelUnfinish:(id)sender;
 - (IBAction)unfinishTask:(id)sender;
 
