@@ -20,6 +20,7 @@
 #import "TMListViewController.h"
 #import "TMBadge.h"
 #import "TMBadgeStore.h"
+#define isiPhone5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE
 
 @implementation TMTaskViewController
 @synthesize task;
@@ -141,8 +142,8 @@
     //[self.view addSubview:timerSubview];
     //totalTimeTimerLabel.text = [NSString stringWithFormat:@"%@ Hour %@ Min",setHourTextField.text,setMinTextField.text];
     currentTimeLeft.frame = CGRectMake(142,280,50,40);
-    [self.view addSubview:currentTimeLeft];
     
+    [self.view addSubview:currentTimeLeft];
     [self createTimer];
     
     //pauseButton.frame = startButton.frame;
@@ -175,7 +176,12 @@
         [self startTimer];
         isTiming = true;
     }else{
-        greyBackground.frame = CGRectMake(0,0,320,480);
+        if (isiPhone5){
+            greyBackground.frame = CGRectMake(0,0,320,548);
+
+        }else{
+            greyBackground.frame = CGRectMake(0,0,320,460);
+        }
         [self.view addSubview:greyBackground];
     }
 }
@@ -240,7 +246,11 @@
 - (IBAction)changeToTimeDetailView:(id)sender
 {
     if (!timeDetail){
-        taskDetailView.frame = CGRectMake(0,358, 320, 86);
+        if (isiPhone5){
+            taskDetailView.frame = CGRectMake(0,444, 320, 86);
+        }else{
+            taskDetailView.frame = CGRectMake(0,358, 320, 86);
+        }
         [self.view addSubview:taskDetailView];
         timeDetail = true;
     }else{
