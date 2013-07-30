@@ -79,12 +79,14 @@
     }
     if (t.isFinished == true){
         t.isFinished = false;
+        [self saveChanges];
         return false;
     }else{
         t.isFinished = true;
+        [self saveChanges];
         return true;
     }
-    [self saveChanges];
+    
 }
 
 - (void)removeTask:(TMTask *)task

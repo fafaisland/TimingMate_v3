@@ -287,8 +287,9 @@
     [taskStatus removeFromSuperview];
     if (task.isFinished == false){
         [self resetTimer];
-        task.isFinished = true;
+        
         [[TMTaskStore sharedStore] updateTaskToggleFinished:task];
+        task.isFinished = true;
         TMBadgeStore *bs = [TMBadgeStore sharedStore];
         if (task.totalUsedTime <= task.allowedCompletionTime){
             [self appearBadgeWithName:@"withinBadge"];

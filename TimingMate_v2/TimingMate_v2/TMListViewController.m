@@ -177,7 +177,7 @@
             if(t.isFinished == false){
                 [cell.textLabel setTextColor:[UIColor whiteColor]];
             }else{
-                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setTextColor:[UIColor redColor]];
             }
             cell.accessoryView = nil;
            // cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
