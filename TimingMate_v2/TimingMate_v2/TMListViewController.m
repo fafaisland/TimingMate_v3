@@ -172,6 +172,7 @@
             TMListItem *l = [[[TMListStore sharedStore] returnAllLists] objectAtIndex:indexPath.section];
             TMTask *t = [[[TMListStore sharedStore] getAllTasksFromList:l.title] objectAtIndex:(indexPath.row -1)];
             cell.textLabel.text = t.title;
+            [cell setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"task_cell_background.png"]]];
             [cell.textLabel setBackgroundColor:[UIColor clearColor]];
             if(t.isFinished == false){
                 [cell.textLabel setTextColor:[UIColor whiteColor]];
