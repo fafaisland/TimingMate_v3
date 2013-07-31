@@ -57,9 +57,9 @@
 {
     self = [super init];
     if (self){
-        [self setNumTasksFinishedWithinDeadline:[aDecoder decodeObjectForKey:@"numTasksFinishedWithinDeadline"]];
-        [self setNumTasksFinishedExceedDeadline:[aDecoder decodeObjectForKey:@"numTasksFinishedExceedDeadline"]];
-        [self setIsFirstTime:[aDecoder decodeObjectForKey:@"isFirstTime"]];
+        [self setNumTasksFinishedWithinDeadline:[aDecoder decodeIntegerForKey:@"numTasksFinishedWithinDeadline"]];
+        [self setNumTasksFinishedExceedDeadline:[aDecoder decodeIntegerForKey:@"numTasksFinishedExceedDeadline"]];
+        [self setIsFirstTime:[aDecoder decodeBoolForKey:@"isFirstTime"]];
         [self setLastModifiedTask:[aDecoder decodeObjectForKey:@"lastModifiedTask"]];
     }
     return self;

@@ -49,9 +49,6 @@
         expandedSections = [[NSMutableIndexSet alloc] init];
     }
     listTableView.allowsSelectionDuringEditing = YES;
-    TMBadge *badge = [[TMBadgeStore sharedStore] returnBadge];
-    numTasksWithin.text = [NSString stringWithFormat:@"%d", badge.numTasksFinishedWithinDeadline];
-    numTasksExceed.text = [NSString stringWithFormat:@"%d", badge.numTasksFinishedExceedDeadline];
     
 }
 
@@ -67,6 +64,9 @@
     self.editing = NO;
     [addField setText:@""];
     [addField resignFirstResponder];
+    TMBadge *badge = [[TMBadgeStore sharedStore] returnBadge];
+    numTasksWithin.text = [NSString stringWithFormat:@"%d", badge.numTasksFinishedWithinDeadline];
+    numTasksExceed.text = [NSString stringWithFormat:@"%d", badge.numTasksFinishedExceedDeadline];
 }
 
 - (void)didReceiveMemoryWarning
