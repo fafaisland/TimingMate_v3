@@ -55,6 +55,8 @@
 		041BA91F17A77F5C0098F3B4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 041BA91E17A77F5B0098F3B4 /* Default.png */; };
 		041BA92117A77F630098F3B4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041BA92017A77F630098F3B4 /* Default@2x.png */; };
 		041BA92317A77F680098F3B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041BA92217A77F680098F3B4 /* Default-568h@2x.png */; };
+		042C1DC217A894620094AA71 /* exceedBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 042C1DC017A894600094AA71 /* exceedBadge.png */; };
+		042C1DC317A894620094AA71 /* withinBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 042C1DC117A894600094AA71 /* withinBadge.png */; };
 		044BB95917A5A2ED0025986D /* timer-restart.png in Resources */ = {isa = PBXBuildFile; fileRef = 044BB95817A5A2ED0025986D /* timer-restart.png */; };
 		044BB95B17A5C8450025986D /* List-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 044BB95A17A5C8440025986D /* List-icon.png */; };
 		04648328178E90AF007E0DF0 /* list_edit_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 04648327178E90AF007E0DF0 /* list_edit_btn.png */; };
@@ -75,8 +77,6 @@
 		04DBC54017A07F49008C6BA4 /* TMListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DBC53E17A07F49008C6BA4 /* TMListViewController.xib */; };
 		04DBC54617A09DA8008C6BA4 /* TMBadgeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBC54517A09DA8008C6BA4 /* TMBadgeStore.m */; };
 		04DBC54917A0A154008C6BA4 /* TMBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBC54817A0A154008C6BA4 /* TMBadge.m */; };
-		04DBC54C17A0D53B008C6BA4 /* exceedBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DBC54A17A0D53B008C6BA4 /* exceedBadge.png */; };
-		04DBC54D17A0D53B008C6BA4 /* withinBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DBC54B17A0D53B008C6BA4 /* withinBadge.png */; };
 		04F373C8178CE53700550202 /* timer-start.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F373C5178CE53700550202 /* timer-start.png */; };
 		04F373CA178CE53700550202 /* timer-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F373C7178CE53700550202 /* timer-stop.png */; };
 		96126528178FABE500D01039 /* info_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 96126527178FABE500D01039 /* info_btn.png */; };
@@ -142,6 +142,8 @@
 		041BA91E17A77F5B0098F3B4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		041BA92017A77F630098F3B4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		041BA92217A77F680098F3B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		042C1DC017A894600094AA71 /* exceedBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exceedBadge.png; sourceTree = "<group>"; };
+		042C1DC117A894600094AA71 /* withinBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = withinBadge.png; sourceTree = "<group>"; };
 		044BB95817A5A2ED0025986D /* timer-restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-restart.png"; sourceTree = "<group>"; };
 		044BB95A17A5C8440025986D /* List-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "List-icon.png"; sourceTree = "<group>"; };
 		04648327178E90AF007E0DF0 /* list_edit_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_edit_btn.png; sourceTree = "<group>"; };
@@ -171,8 +173,6 @@
 		04DBC54517A09DA8008C6BA4 /* TMBadgeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMBadgeStore.m; sourceTree = "<group>"; };
 		04DBC54717A0A154008C6BA4 /* TMBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMBadge.h; sourceTree = "<group>"; };
 		04DBC54817A0A154008C6BA4 /* TMBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMBadge.m; sourceTree = "<group>"; };
-		04DBC54A17A0D53B008C6BA4 /* exceedBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exceedBadge.png; sourceTree = "<group>"; };
-		04DBC54B17A0D53B008C6BA4 /* withinBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = withinBadge.png; sourceTree = "<group>"; };
 		04F373C5178CE53700550202 /* timer-start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-start.png"; sourceTree = "<group>"; };
 		04F373C7178CE53700550202 /* timer-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-stop.png"; sourceTree = "<group>"; };
 		96126527178FABE500D01039 /* info_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_btn.png; sourceTree = "<group>"; };
@@ -261,6 +261,8 @@
 		040386301778F31C00166686 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				042C1DC017A894600094AA71 /* exceedBadge.png */,
+				042C1DC117A894600094AA71 /* withinBadge.png */,
 				041BA91817A77F4D0098F3B4 /* launch_image_320_480.png */,
 				041BA91917A77F4E0098F3B4 /* launch_image_640_960.png */,
 				041BA91A17A77F4E0098F3B4 /* launch_image_640_1136.png */,
@@ -279,8 +281,6 @@
 				04D9924D17A251CB006ADC74 /* progress.png */,
 				04D9924917A24F65006ADC74 /* arrow_1.png */,
 				04D9924A17A24F65006ADC74 /* arrow_2.png */,
-				04DBC54A17A0D53B008C6BA4 /* exceedBadge.png */,
-				04DBC54B17A0D53B008C6BA4 /* withinBadge.png */,
 				04DBC52617A07DF6008C6BA4 /* lessInfo_22inch.png */,
 				96126529178FABEE00D01039 /* smile_face_small.png */,
 				96126527178FABE500D01039 /* info_btn.png */,
@@ -477,8 +477,6 @@
 				04DBC52717A07DF6008C6BA4 /* lessInfo_22inch.png in Resources */,
 				04DBC53B17A07EEB008C6BA4 /* TMEditTaskViewController.xib in Resources */,
 				04DBC54017A07F49008C6BA4 /* TMListViewController.xib in Resources */,
-				04DBC54C17A0D53B008C6BA4 /* exceedBadge.png in Resources */,
-				04DBC54D17A0D53B008C6BA4 /* withinBadge.png in Resources */,
 				04D9924B17A24F65006ADC74 /* arrow_1.png in Resources */,
 				04D9924C17A24F65006ADC74 /* arrow_2.png in Resources */,
 				04D9924E17A251CB006ADC74 /* progress.png in Resources */,
@@ -502,6 +500,8 @@
 				041BA91F17A77F5C0098F3B4 /* Default.png in Resources */,
 				041BA92117A77F630098F3B4 /* Default@2x.png in Resources */,
 				041BA92317A77F680098F3B4 /* Default-568h@2x.png in Resources */,
+				042C1DC217A894620094AA71 /* exceedBadge.png in Resources */,
+				042C1DC317A894620094AA71 /* withinBadge.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
