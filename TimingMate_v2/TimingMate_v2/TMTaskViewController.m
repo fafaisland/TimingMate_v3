@@ -83,8 +83,8 @@
 {
     [super viewWillDisappear:animated];
     [[TMTaskStore sharedStore] updateTask:task withTotalTimeSpent:task.totalUsedTime];
-    [timer invalidate];
-    
+    //[timer invalidate];
+    [self resetTimer];
 }
 #pragma mark - helper
 - (void)updateWithNoTaskChosen{
