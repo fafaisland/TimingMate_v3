@@ -57,8 +57,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     if (task != nil){
-        [super viewWillAppear:animated];
         listNameLabel.text = task.list.title;
         taskNameLabel.text = task.title;
         
@@ -132,9 +132,6 @@
     totalSpentTime.text = TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime);
     allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
     
-    //badgeButton = [[UIButton alloc] init];
-    //[badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
-    
 }
 
 - (void)startTimer{
@@ -162,8 +159,8 @@
     }else{
         badgePic = @"exceedBadge.png";
     }
-    badgeButton = [[UIButton alloc] init];
-    [badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
+    //badgeButton = [[UIButton alloc] init];
+    //[badgeButton addTarget:self action:@selector(badgeButtonTouchDown) forControlEvents:UIControlEventTouchDown];
     [badgeButton setBackgroundImage:[UIImage imageNamed:badgePic] forState: UIControlStateNormal];
     badgeButton.frame = CGRectMake(68,158,186,186);
     [self.view addSubview:badgeButton];
@@ -273,10 +270,16 @@
     
 }
 
-- (void)badgeButtonTouchDown
+- (IBAction)badgeButtonTouchDown:(id)sender
 {
     [self.view addSubview:unfinishView];
 }
+
+/*
+- (void)badgeButtonTouchDown
+{
+    [self.view addSubview:unfinishView];
+}*/
 
 - (IBAction)finishTask:(id)sender
 {

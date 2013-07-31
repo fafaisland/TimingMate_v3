@@ -13,6 +13,8 @@
 {
     IBOutlet UIView *introAppView;
     BOOL hasIntroView;
+    IBOutlet UIButton *badgeButton;
+    
     
     IBOutlet UIView *noTaskChosenView;
     BOOL hasNoTaskChosenView;
@@ -38,7 +40,6 @@
     IBOutlet UIButton *pauseButton;
     IBOutlet UIButton *startButton;
     
-    UIButton *badgeButton;
     //BOOL hasBageButton;
     
     IBOutlet UIView *greyBackground;
@@ -79,6 +80,8 @@
 - (IBAction)deleteTask:(id)sender;
 - (IBAction)finishTask:(id)sender;
 
+- (IBAction)badgeButtonTouchDown:(id)sender;
+
 - (IBAction)changeToListView:(id)sender;
 - (IBAction)changeToTaskStatusView:(id)sender;
 - (IBAction)changeToTimeDetailView:(id)sender;
@@ -87,7 +90,6 @@
 
 - (IBAction)cancelUnfinish:(id)sender;
 - (IBAction)unfinishTask:(id)sender;
-
 - (void)updateWithTask:(TMTask *)aTask;
 - (void)updateWithNoTaskChosen;
 @end
