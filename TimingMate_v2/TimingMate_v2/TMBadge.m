@@ -33,10 +33,14 @@
     numTasksFinishedExceedDeadline += 1;
 }
 -(void)decreaseWithin{
-    numTasksFinishedWithinDeadline -= 1;
+    if (numTasksFinishedWithinDeadline > 0){
+        numTasksFinishedWithinDeadline -= 1;
+    }
 }
 -(void)decreaseExceed{
-    numTasksFinishedExceedDeadline -= 1;
+    if (numTasksFinishedExceedDeadline > 0){
+        numTasksFinishedExceedDeadline -= 1;
+    }
 }
 -(void)setIsFirstTime{
     isFirstTime = false;

@@ -152,16 +152,16 @@
             [cell setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellBg.png"]]];
             
             //set right conjunction pic of the cell
-            if (l.tasks.count > 0){
-                cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+            //if (l.tasks.count > 0){
+              //  cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
                 //if ([expandedSections containsIndex:indexPath.section])
                 //{
                   //  cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lessInfo_22inch.png"]];
               //  }
                 //else{
-                    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moreInfo_22inch.png"]];
+                   // cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moreInfo_22inch.png"]];
                 //}
-            }
+           // }
             
         }else
         {
@@ -251,14 +251,15 @@
                     if ([tmpArray count] > 0){
                         [listTableView deleteRowsAtIndexPaths:tmpArray withRowAnimation:UITableViewRowAnimationTop];
                     }
-                    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-                    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moreInfo_22inch.png"]];
+                    //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                    //cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moreInfo_22inch.png"]];
+                    
                 }else{
                     if ([tmpArray count] > 0){
                         [listTableView insertRowsAtIndexPaths:tmpArray withRowAnimation:UITableViewRowAnimationTop];
                     }
-                    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-                    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lessInfo_22inch.png"]];
+                    //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                    //cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lessInfo_22inch.png"]];
                 }
                 
             }
