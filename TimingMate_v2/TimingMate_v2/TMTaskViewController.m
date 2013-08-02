@@ -87,6 +87,13 @@
     [self resetTimer];
 }
 #pragma mark - helper
+- (void)setUnfinishView{
+    if (isiPhone5){
+        unfinishView.frame = CGRectMake(0, 0, 320, 548);
+    }else{
+        unfinishView.frame = CGRectMake(0, 0, 320, 460);
+    }
+}
 - (void)updateWithNoTaskChosen{
     if (hasIntroView == true){
         [introAppView removeFromSuperview];
@@ -272,6 +279,7 @@
 
 - (IBAction)badgeButtonTouchDown:(id)sender
 {
+    [self setUnfinishView];
     [self.view addSubview:unfinishView];
 }
 
