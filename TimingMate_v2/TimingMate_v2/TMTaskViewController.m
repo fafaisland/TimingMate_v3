@@ -151,7 +151,7 @@
     //timerSubview.frame = CGRectMake(0,300,320,100);
     //[self.view addSubview:timerSubview];
     //totalTimeTimerLabel.text = [NSString stringWithFormat:@"%@ Hour %@ Min",setHourTextField.text,setMinTextField.text];
-    currentTimeLeft.frame = CGRectMake(142,280,50,40);
+    currentTimeLeft.frame = CGRectMake(142,240,50,40);
     
     [self.view addSubview:currentTimeLeft];
     [self createTimer];

@@ -559,7 +559,6 @@
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{28, 24}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -574,7 +573,6 @@
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{28, 24}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -589,21 +587,6 @@
 				<bool key="IBUIUserInteractionEnabled">NO</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIImage" ref="986962755"/>
-			</object>
-			<object class="IBUIImageView" id="244544919">
-				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
-				<string key="NSFrameSize">{293, 111}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
-				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<bool key="IBUIUserInteractionEnabled">NO</bool>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-				<object class="NSCustomResource" key="IBUIImage">
-					<string key="NSClassName">NSImage</string>
-					<string key="NSResourceName">smile_face_small.png</string>
-				</object>
 			</object>
 			<object class="IBUIView" id="531363662">
 				<reference key="NSNextResponder"/>
@@ -1213,14 +1196,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">smileFaceImage</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="244544919"/>
-					</object>
-					<int key="connectionID">1150</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">unfinishView</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="486996255"/>
@@ -1603,11 +1578,6 @@
 						<reference key="parent" ref="739841226"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1149</int>
-						<reference key="object" ref="244544919"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">1151</int>
 						<reference key="object" ref="100491646"/>
 						<array class="NSMutableArray" key="children"/>
@@ -1875,7 +1845,6 @@
 				<string key="1137.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1140.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1141.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="1149.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1151.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1155.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1156.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -2161,7 +2130,6 @@
 			<string key="arrow_2.png">{264, 297}</string>
 			<string key="finish.png">{26, 26}</string>
 			<string key="info_btn.png">{60, 18}</string>
-			<string key="smile_face_small.png">{300, 122}</string>
 			<string key="timer-restart.png">{512, 512}</string>
 			<string key="trash.png">{22, 22}</string>
 			<string key="victory_small.png">{38, 29}</string>

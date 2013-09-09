@@ -203,7 +203,6 @@
 		040385EB1778C08000166686 = {
 			isa = PBXGroup;
 			children = (
-				0485E33317DD8EA800948FCD /* AudioToolbox.framework */,
 				041BA92217A77F680098F3B4 /* Default-568h@2x.png */,
 				041BA92017A77F630098F3B4 /* Default@2x.png */,
 				041BA91E17A77F5B0098F3B4 /* Default.png */,
@@ -226,6 +225,7 @@
 		040385F61778C08000166686 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0485E33317DD8EA800948FCD /* AudioToolbox.framework */,
 				040386421779184300166686 /* QuartzCore.framework */,
 				040385F71778C08000166686 /* UIKit.framework */,
 				040385F91778C08000166686 /* Foundation.framework */,
