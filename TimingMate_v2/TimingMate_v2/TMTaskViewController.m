@@ -20,6 +20,7 @@
 #import "TMListViewController.h"
 #import "TMBadge.h"
 #import "TMBadgeStore.h"
+
 #define isiPhone5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE
 
 @implementation TMTaskViewController
@@ -51,7 +52,9 @@
         timeDetail = false;
         [self setupTimer];
         task = aTask;
-        
+        NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"tick_sound"
+                                                  withExtension:@"wav"];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &sound1);
     }
     return self;
 }
@@ -65,6 +68,7 @@
         totalSpentTime.text = TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime);
         allowedTime.text = TMTimerStringFromSecondsShowHourAndMin(task.allowedCompletionTime);
         
+               
         if (task.isFinished == true){
             if(task.totalUsedTime <= task.allowedCompletionTime){
                 [self appearBadgeWithName:@"withinBadge"];
@@ -84,6 +88,8 @@
     [super viewWillDisappear:animated];
     [[TMTaskStore sharedStore] updateTask:task withTotalTimeSpent:task.totalUsedTime];
     //[timer invalidate];
+    //AudioServicesRemoveSystemSoundCompletion(sound1);
+    //AudioServicesDisposeSystemSoundID(sound1);
     [self resetTimer];
 }
 #pragma mark - helper
@@ -381,6 +387,7 @@
         [self setLabelFromLeftTime];
         task.totalUsedTime += 1;
         [totalSpentTime setText:TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime)];
+        AudioServicesPlaySystemSound(sound1);
     }
     else{
         [self resetTimer];

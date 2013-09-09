@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 @class TMTask;
 
 @interface TMTaskViewController : UIViewController
 {
+    SystemSoundID sound1;
+    
     IBOutlet UIView *introAppView;
     BOOL hasIntroView;
     IBOutlet UIButton *badgeButton;
