@@ -21,6 +21,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    enterBackGround = [[NSDate alloc] init];
+    enterFront = [[NSDate alloc] init];
+    timeInterval = 0;
     // Override point for customization after application launch.
     /*TMTaskViewController *tmtvc = [[TMTaskViewController alloc] init];
     
@@ -40,6 +44,12 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     NSLog(@"Into background");
+    
+    TMViewControllerStore *controllerStore = [TMViewControllerStore sharedStore];
+    TMTaskViewController *tvc = [controllerStore returnTMtvc];
+    if ([tvc returnIsTiming]==true && [tvc returnIsPaused]==false){
+        enterBackGround = [NSDate date];
+    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -51,7 +61,7 @@
     TMViewControllerStore *controllerStore = [TMViewControllerStore sharedStore];
     TMTaskViewController *tvc = [controllerStore returnTMtvc];
     if ([tvc returnIsTiming]==true && [tvc returnIsPaused]==false){
-        int timeInterval = [tvc returnTimeLeftTo30min];
+        timeInterval = [tvc returnTimeLeftTo30min];
         NSLog(@"Time intervals %d seconds",timeInterval);
         
         NSDate *alertTime = [[NSDate date] dateByAddingTimeInterval:timeInterval];
@@ -77,11 +87,26 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    TMViewControllerStore *controllerStore = [TMViewControllerStore sharedStore];
+    TMTaskViewController *tvc = [controllerStore returnTMtvc];
+    if ([tvc returnIsTiming]==true && [tvc returnIsPaused]==false){
+        enterFront = [NSDate date];
+        int secondsBetween = [enterFront timeIntervalSinceDate:enterBackGround];
+        if (secondsBetween >= timeInterval){
+            //reset timer
+            [tvc increaseTimerCountFromBackgroundWithInterval:timeInterval IsReset:true];
+            
+        }else{
+            [tvc increaseTimerCountFromBackgroundWithInterval:secondsBetween IsReset:false];
+        }
+    }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

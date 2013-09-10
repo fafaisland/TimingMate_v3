@@ -13,5 +13,3 @@ NSString * TMTimerStringFromSecondsShowHourMinSec(int seconds);
 
 NSInteger TMTimerHourFromSeconds(int seconds);
 NSInteger TMTimerMinFromSeconds(int seconds);
-
-int sleepTime;

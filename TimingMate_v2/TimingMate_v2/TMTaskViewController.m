@@ -400,6 +400,20 @@
     
 }
 
+- (void)increaseTimerCountFromBackgroundWithInterval:(int)interval IsReset:(BOOL)isReset
+{
+    if (isReset == false)
+    {
+        timerCount += interval;
+        [self setLabelFromLeftTime];
+    }
+    else{
+        [self resetTimer];
+    }
+    task.totalUsedTime += interval;
+    [totalSpentTime setText:TMTimerStringFromSecondsShowHourMinSec(task.totalUsedTime)];
+
+}
 #pragma mark - falling flowers
 - (void)fallOneFlower:(UIImageView *)vi WithVelocity:(NSTimeInterval)v FromX:(CGFloat)fx FromY:(CGFloat)fy ToX:(CGFloat)tx
 {

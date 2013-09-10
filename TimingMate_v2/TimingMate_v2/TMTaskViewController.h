@@ -98,4 +98,7 @@
 - (BOOL)returnIsTiming;
 - (BOOL)returnIsPaused;
 - (int)returnTimeLeftTo30min;
+
+- (void)increaseTimerCountFromBackgroundWithInterval:(int)interval IsReset:(BOOL)isReset;
+- (void)resetTimer;
 @end

@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TMAppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+    NSDate *enterBackGround;
+    NSDate *enterFront;
+    int timeInterval;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 - (void)saveContext;
