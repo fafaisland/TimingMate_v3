@@ -72,6 +72,27 @@
     }
         
     //store data
+       [self saveContext];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    // Saves changes in the application's managed object context before the application terminates.
+    [self saveContext];
+}
+
+- (void)saveContext
+{
     BOOL successList = [[TMListStore sharedStore] saveChanges];
     BOOL successTask = [[TMTaskStore sharedStore] saveChanges];
     BOOL successBadge = [[TMBadgeStore sharedStore] saveChanges];
@@ -93,36 +114,6 @@
         NSLog(@"Saved the Badges");
     }else{
         NSLog(@"Could not save the badges");
-    }
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
-}
-
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
     }
 }
 
