@@ -428,4 +428,16 @@
     return YES;
 }
 
+#pragma mark - For Notification
+- (BOOL)returnIsTiming{
+    return isTiming;
+}
+
+- (BOOL)returnIsPaused{
+    return isPaused;
+}
+
+- (int)returnTimeLeftTo30min{
+    return timerTime - timerCount;
+}
 @end

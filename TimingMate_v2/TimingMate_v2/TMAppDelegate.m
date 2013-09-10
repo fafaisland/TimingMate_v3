@@ -51,20 +51,26 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     //notification center
-    NSDate *alertTime = [[NSDate date] dateByAddingTimeInterval:10];
-    UIApplication* app = [UIApplication sharedApplication];
-    UILocalNotification* notifyAlarm = [[UILocalNotification alloc] init];
-    if (notifyAlarm)
-    {
-        notifyAlarm.fireDate = alertTime;
-        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
-        notifyAlarm.repeatInterval = 0;
-        notifyAlarm.soundName = @"notify_sound.aiff";
-        notifyAlarm.alertBody = @"30 Minutes Elapsed";
-        
-        [app scheduleLocalNotification:notifyAlarm];
+    TMViewControllerStore *controllerStore = [TMViewControllerStore sharedStore];
+    TMTaskViewController *tvc = [controllerStore returnTMtvc];
+    if ([tvc returnIsTiming]==true && [tvc returnIsPaused]==false){
+        int timeInterval = [tvc returnTimeLeftTo30min];
+        NSDate *alertTime = [[NSDate date] dateByAddingTimeInterval:timeInterval];
+        UIApplication* app = [UIApplication sharedApplication];
+        UILocalNotification* notifyAlarm = [[UILocalNotification alloc] init];
+        if (notifyAlarm)
+        {
+            notifyAlarm.fireDate = alertTime;
+            notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+            notifyAlarm.repeatInterval = 0;
+            notifyAlarm.soundName = @"notify_sound.aiff";
+            notifyAlarm.alertBody = @"30 Minutes Elapsed";
+            
+            [app scheduleLocalNotification:notifyAlarm];
+        }
+
     }
-    
+        
     //store data
     BOOL successList = [[TMListStore sharedStore] saveChanges];
     BOOL successTask = [[TMTaskStore sharedStore] saveChanges];

@@ -94,4 +94,8 @@
 - (IBAction)unfinishTask:(id)sender;
 - (void)updateWithTask:(TMTask *)aTask;
 - (void)updateWithNoTaskChosen;
+
+- (BOOL)returnIsTiming;
+- (BOOL)returnIsPaused;
+- (int)returnTimeLeftTo30min;
 @end
